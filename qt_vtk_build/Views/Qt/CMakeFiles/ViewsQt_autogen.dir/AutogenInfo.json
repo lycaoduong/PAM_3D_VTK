@@ -1,0 +1,204 @@
+{
+	"BUILD_DIR" : "/home/krist_lee/projects/qt_vtk_build/Views/Qt/ViewsQt_autogen",
+	"CMAKE_BINARY_DIR" : "/home/krist_lee/projects/qt_vtk_build",
+	"CMAKE_CURRENT_BINARY_DIR" : "/home/krist_lee/projects/qt_vtk_build/Views/Qt",
+	"CMAKE_CURRENT_SOURCE_DIR" : "/home/krist_lee/projects/VTK/Views/Qt",
+	"CMAKE_EXECUTABLE" : "/usr/bin/cmake",
+	"CMAKE_SOURCE_DIR" : "/home/krist_lee/projects/VTK",
+	"HEADERS" : 
+	[
+		[
+			"/home/krist_lee/projects/VTK/Views/Qt/vtkQtAnnotationView.h",
+			"Mu",
+			"EWIEGA46WW/moc_vtkQtAnnotationView.cpp"
+		],
+		[
+			"/home/krist_lee/projects/VTK/Views/Qt/vtkQtListView.h",
+			"Mu",
+			"EWIEGA46WW/moc_vtkQtListView.cpp"
+		],
+		[
+			"/home/krist_lee/projects/VTK/Views/Qt/vtkQtRecordView.h",
+			"Mu",
+			"EWIEGA46WW/moc_vtkQtRecordView.cpp"
+		],
+		[
+			"/home/krist_lee/projects/VTK/Views/Qt/vtkQtTableRepresentation.h",
+			"Mu",
+			"EWIEGA46WW/moc_vtkQtTableRepresentation.cpp"
+		],
+		[
+			"/home/krist_lee/projects/VTK/Views/Qt/vtkQtTableView.h",
+			"Mu",
+			"EWIEGA46WW/moc_vtkQtTableView.cpp"
+		],
+		[
+			"/home/krist_lee/projects/VTK/Views/Qt/vtkQtTreeView.h",
+			"Mu",
+			"EWIEGA46WW/moc_vtkQtTreeView.cpp"
+		],
+		[
+			"/home/krist_lee/projects/VTK/Views/Qt/vtkQtView.h",
+			"Mu",
+			"EWIEGA46WW/moc_vtkQtView.cpp"
+		],
+		[
+			"/home/krist_lee/projects/qt_vtk_build/Views/Qt/vtkViewsQtModule.h",
+			"Mu",
+			"EJRQKI7XPS/moc_vtkViewsQtModule.cpp"
+		]
+	],
+	"HEADER_EXTENSIONS" : [ "h", "hh", "h++", "hm", "hpp", "hxx", "in", "txx" ],
+	"INCLUDE_DIR" : "/home/krist_lee/projects/qt_vtk_build/Views/Qt/ViewsQt_autogen/include",
+	"MOC_COMPILATION_FILE" : "/home/krist_lee/projects/qt_vtk_build/Views/Qt/ViewsQt_autogen/mocs_compilation.cpp",
+	"MOC_DEFINITIONS" : 
+	[
+		"QT_CORE_LIB",
+		"QT_GUI_LIB",
+		"QT_NO_DEBUG",
+		"QT_NO_KEYWORDS",
+		"QT_OPENGL_LIB",
+		"QT_WIDGETS_LIB",
+		"VTK_IN_VTK",
+		"VTK_SMP_DEFAULT_IMPLEMENTATION_OPENMP=0",
+		"VTK_SMP_DEFAULT_IMPLEMENTATION_SEQUENTIAL=1",
+		"VTK_SMP_DEFAULT_IMPLEMENTATION_STDTHREAD=0",
+		"VTK_SMP_DEFAULT_IMPLEMENTATION_TBB=0",
+		"VTK_SMP_ENABLE_OPENMP=0",
+		"VTK_SMP_ENABLE_SEQUENTIAL=1",
+		"VTK_SMP_ENABLE_STDTHREAD=1",
+		"VTK_SMP_ENABLE_TBB=0",
+		"ViewsQt_EXPORTS",
+		"kiss_fft_scalar=double"
+	],
+	"MOC_DEPEND_FILTERS" : 
+	[
+		[
+			"Q_PLUGIN_METADATA",
+			"[\n][ \t]*Q_PLUGIN_METADATA[ \t]*\\([^\\)]*FILE[ \t]*\"([^\"]+)\""
+		]
+	],
+	"MOC_INCLUDES" : 
+	[
+		"/home/krist_lee/projects/qt_vtk_build/Views/Qt",
+		"/home/krist_lee/projects/VTK/Views/Qt",
+		"/home/krist_lee/projects/qt_vtk_build/Common/Core",
+		"/home/krist_lee/projects/VTK/Common/Core",
+		"/home/krist_lee/projects/qt_vtk_build/GUISupport/Qt",
+		"/home/krist_lee/projects/VTK/GUISupport/Qt",
+		"/home/krist_lee/projects/qt_vtk_build/Rendering/Core",
+		"/home/krist_lee/projects/VTK/Rendering/Core",
+		"/home/krist_lee/projects/qt_vtk_build/Common/DataModel",
+		"/home/krist_lee/projects/VTK/Common/DataModel",
+		"/home/krist_lee/projects/qt_vtk_build/Common/Math",
+		"/home/krist_lee/projects/VTK/Common/Math",
+		"/home/krist_lee/projects/qt_vtk_build/ThirdParty/kissfft/vtkkissfft",
+		"/home/krist_lee/projects/VTK/ThirdParty/kissfft/vtkkissfft",
+		"/home/krist_lee/projects/qt_vtk_build/Common/Transforms",
+		"/home/krist_lee/projects/VTK/Common/Transforms",
+		"/home/krist_lee/projects/qt_vtk_build/Common/ExecutionModel",
+		"/home/krist_lee/projects/VTK/Common/ExecutionModel",
+		"/home/krist_lee/projects/qt_vtk_build/Filters/Core",
+		"/home/krist_lee/projects/VTK/Filters/Core",
+		"/home/krist_lee/projects/qt_vtk_build/Common/Misc",
+		"/home/krist_lee/projects/VTK/Common/Misc",
+		"/home/krist_lee/projects/qt_vtk_build/Rendering/OpenGL2",
+		"/home/krist_lee/projects/VTK/Rendering/OpenGL2",
+		"/home/krist_lee/projects/qt_vtk_build/Filters/General",
+		"/home/krist_lee/projects/VTK/Filters/General",
+		"/home/krist_lee/projects/qt_vtk_build/Rendering/UI",
+		"/home/krist_lee/projects/VTK/Rendering/UI",
+		"/home/krist_lee/projects/qt_vtk_build/ThirdParty/glew/vtkglew",
+		"/home/krist_lee/projects/VTK/ThirdParty/glew/vtkglew",
+		"/home/krist_lee/projects/qt_vtk_build/Interaction/Widgets",
+		"/home/krist_lee/projects/VTK/Interaction/Widgets",
+		"/home/krist_lee/projects/qt_vtk_build/Filters/Sources",
+		"/home/krist_lee/projects/VTK/Filters/Sources",
+		"/home/krist_lee/projects/qt_vtk_build/Rendering/Context2D",
+		"/home/krist_lee/projects/VTK/Rendering/Context2D",
+		"/home/krist_lee/projects/qt_vtk_build/Views/Core",
+		"/home/krist_lee/projects/VTK/Views/Core",
+		"/home/krist_lee/projects/qt_vtk_build/Views/Infovis",
+		"/home/krist_lee/projects/VTK/Views/Infovis",
+		"/home/krist_lee/projects/qt_vtk_build/Interaction/Style",
+		"/home/krist_lee/projects/VTK/Interaction/Style",
+		"/home/krist_lee/projects/qt_vtk_build/Filters/Extraction",
+		"/home/krist_lee/projects/VTK/Filters/Extraction",
+		"/home/krist_lee/projects/qt_vtk_build/Infovis/Core",
+		"/home/krist_lee/projects/VTK/Infovis/Core",
+		"/home/krist_lee/projects/qt_vtk_build/Common/Color",
+		"/home/krist_lee/projects/VTK/Common/Color",
+		"/home/krist_lee/projects/qt_vtk_build/IO/Image",
+		"/home/krist_lee/projects/VTK/IO/Image",
+		"/home/krist_lee/projects/qt_vtk_build/Imaging/Core",
+		"/home/krist_lee/projects/VTK/Imaging/Core",
+		"/home/krist_lee/projects/qt_vtk_build/Imaging/Sources",
+		"/home/krist_lee/projects/VTK/Imaging/Sources",
+		"/home/krist_lee/projects/qt_vtk_build/Rendering/FreeType",
+		"/home/krist_lee/projects/VTK/Rendering/FreeType",
+		"/home/krist_lee/projects/qt_vtk_build/ThirdParty/freetype/vtkfreetype",
+		"/home/krist_lee/projects/VTK/ThirdParty/freetype/vtkfreetype",
+		"/home/krist_lee/projects/qt_vtk_build/ThirdParty/zlib/vtkzlib",
+		"/home/krist_lee/projects/VTK/ThirdParty/zlib/vtkzlib",
+		"/home/krist_lee/projects/qt_vtk_build/Utilities/KWIML",
+		"/home/krist_lee/projects/VTK/Utilities/KWIML",
+		"/home/krist_lee/projects/qt_vtk_build/Utilities/KWSys",
+		"/home/krist_lee/projects/VTK/Utilities/KWSys",
+		"/home/krist_lee/projects/qt_vtk_build/ThirdParty/kissfft",
+		"/home/krist_lee/projects/VTK/ThirdParty/kissfft",
+		"/home/krist_lee/projects/qt_vtk_build/ThirdParty/glew",
+		"/home/krist_lee/projects/VTK/ThirdParty/glew",
+		"/usr/include/x86_64-linux-gnu/qt5",
+		"/usr/include/x86_64-linux-gnu/qt5/QtOpenGL",
+		"/usr/include/x86_64-linux-gnu/qt5/QtWidgets",
+		"/usr/include/x86_64-linux-gnu/qt5/QtGui",
+		"/usr/include/x86_64-linux-gnu/qt5/QtCore",
+		"/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++",
+		"/home/krist_lee/projects/qt_vtk_build/ThirdParty/freetype",
+		"/home/krist_lee/projects/VTK/ThirdParty/freetype",
+		"/home/krist_lee/projects/qt_vtk_build/ThirdParty/zlib",
+		"/home/krist_lee/projects/VTK/ThirdParty/zlib",
+		"/usr/include",
+		"/usr/include/c++/9",
+		"/usr/include/x86_64-linux-gnu/c++/9",
+		"/usr/include/c++/9/backward",
+		"/usr/lib/gcc/x86_64-linux-gnu/9/include",
+		"/usr/local/include",
+		"/usr/include/x86_64-linux-gnu"
+	],
+	"MOC_MACRO_NAMES" : [ "Q_OBJECT", "Q_GADGET", "Q_NAMESPACE" ],
+	"MOC_OPTIONS" : [],
+	"MOC_PATH_PREFIX" : true,
+	"MOC_PREDEFS_CMD" : 
+	[
+		"/usr/bin/c++",
+		"-dM",
+		"-E",
+		"-c",
+		"/usr/share/cmake-3.16/Modules/CMakeCXXCompilerABI.cpp"
+	],
+	"MOC_PREDEFS_FILE" : "/home/krist_lee/projects/qt_vtk_build/Views/Qt/ViewsQt_autogen/moc_predefs.h",
+	"MOC_RELAXED_MODE" : false,
+	"MOC_SKIP" : [],
+	"MULTI_CONFIG" : false,
+	"PARALLEL" : 4,
+	"PARSE_CACHE_FILE" : "/home/krist_lee/projects/qt_vtk_build/Views/Qt/CMakeFiles/ViewsQt_autogen.dir/ParseCache.txt",
+	"QT_MOC_EXECUTABLE" : "/usr/lib/qt5/bin/moc",
+	"QT_UIC_EXECUTABLE" : "",
+	"QT_VERSION_MAJOR" : 5,
+	"SETTINGS_FILE" : "/home/krist_lee/projects/qt_vtk_build/Views/Qt/CMakeFiles/ViewsQt_autogen.dir/AutogenUsed.txt",
+	"SOURCES" : 
+	[
+		[ "/home/krist_lee/projects/VTK/Views/Qt/vtkQtAnnotationView.cxx", "Mu" ],
+		[ "/home/krist_lee/projects/VTK/Views/Qt/vtkQtListView.cxx", "Mu" ],
+		[ "/home/krist_lee/projects/VTK/Views/Qt/vtkQtRecordView.cxx", "Mu" ],
+		[
+			"/home/krist_lee/projects/VTK/Views/Qt/vtkQtTableRepresentation.cxx",
+			"Mu"
+		],
+		[ "/home/krist_lee/projects/VTK/Views/Qt/vtkQtTableView.cxx", "Mu" ],
+		[ "/home/krist_lee/projects/VTK/Views/Qt/vtkQtTreeView.cxx", "Mu" ],
+		[ "/home/krist_lee/projects/VTK/Views/Qt/vtkQtView.cxx", "Mu" ]
+	],
+	"VERBOSITY" : 0
+}

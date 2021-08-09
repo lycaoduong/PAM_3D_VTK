@@ -1,0 +1,10 @@
+/home/krist_lee/projects/VTK/IO/Chemistry/vtkCMLMoleculeReader.h;vtkIOChemistry
+/home/krist_lee/projects/VTK/IO/Chemistry/vtkGaussianCubeReader.h;vtkIOChemistry
+/home/krist_lee/projects/VTK/IO/Chemistry/vtkGaussianCubeReader2.h;vtkIOChemistry
+/home/krist_lee/projects/VTK/IO/Chemistry/vtkMoleculeReaderBase.h;vtkIOChemistry
+/home/krist_lee/projects/VTK/IO/Chemistry/vtkPDBReader.h;vtkIOChemistry
+/home/krist_lee/projects/VTK/IO/Chemistry/vtkVASPAnimationReader.h;vtkIOChemistry
+/home/krist_lee/projects/VTK/IO/Chemistry/vtkVASPTessellationReader.h;vtkIOChemistry
+/home/krist_lee/projects/VTK/IO/Chemistry/vtkXYZMolReader.h;vtkIOChemistry
+/home/krist_lee/projects/VTK/IO/Chemistry/vtkXYZMolReader2.h;vtkIOChemistry
+/home/krist_lee/projects/qt_vtk_build/IO/Chemistry/vtkIOChemistryModule.h;vtkIOChemistry

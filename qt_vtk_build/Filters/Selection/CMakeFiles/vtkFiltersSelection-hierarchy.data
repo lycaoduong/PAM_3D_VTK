@@ -1,0 +1,4 @@
+/home/krist_lee/projects/VTK/Filters/Selection/vtkCellDistanceSelector.h;vtkFiltersSelection
+/home/krist_lee/projects/VTK/Filters/Selection/vtkKdTreeSelector.h;vtkFiltersSelection
+/home/krist_lee/projects/VTK/Filters/Selection/vtkLinearSelector.h;vtkFiltersSelection
+/home/krist_lee/projects/qt_vtk_build/Filters/Selection/vtkFiltersSelectionModule.h;vtkFiltersSelection

@@ -1,0 +1,8 @@
+/home/krist_lee/projects/VTK/IO/Import/vtk3DS.h;vtkIOImport
+/home/krist_lee/projects/VTK/IO/Import/vtk3DSImporter.h;vtkIOImport
+/home/krist_lee/projects/VTK/IO/Import/vtkGLTFImporter.h;vtkIOImport
+/home/krist_lee/projects/VTK/IO/Import/vtkImporter.h;vtkIOImport
+/home/krist_lee/projects/VTK/IO/Import/vtkVRMLImporter.h;vtkIOImport
+/home/krist_lee/projects/VTK/IO/Import/vtkOBJImporter.h;vtkIOImport
+/home/krist_lee/projects/VTK/IO/Import/vtkOBJImporterInternals.h;vtkIOImport
+/home/krist_lee/projects/qt_vtk_build/IO/Import/vtkIOImportModule.h;vtkIOImport

@@ -1,0 +1,1676 @@
+Checking whether CXX compiler has environ in stdlib.h failed to compile with the following output:
+Change Dir: /home/krist_lee/projects/qt_vtk_build/Utilities/KWSys/vtksys/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_59b67/fast && /usr/bin/make -f CMakeFiles/cmTC_59b67.dir/build.make CMakeFiles/cmTC_59b67.dir/build
+make[1]: Entering directory '/home/krist_lee/projects/qt_vtk_build/Utilities/KWSys/vtksys/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_59b67.dir/kwsysPlatformTestsCXX.cxx.o
+/usr/bin/c++  -DTEST_KWSYS_CXX_HAS_ENVIRON_IN_STDLIB_H  -fPIE   -std=c++11 -o CMakeFiles/cmTC_59b67.dir/kwsysPlatformTestsCXX.cxx.o -c /home/krist_lee/projects/VTK/Utilities/KWSys/vtksys/kwsysPlatformTestsCXX.cxx
+/home/krist_lee/projects/VTK/Utilities/KWSys/vtksys/kwsysPlatformTestsCXX.cxx: In function ‘int main()’:
+/home/krist_lee/projects/VTK/Utilities/KWSys/vtksys/kwsysPlatformTestsCXX.cxx:53:13: error: ‘environ’ was not declared in this scope; did you mean ‘union’?
+   53 |   char* e = environ[0];
+      |             ^~~~~~~
+      |             union
+make[1]: *** [CMakeFiles/cmTC_59b67.dir/build.make:66: CMakeFiles/cmTC_59b67.dir/kwsysPlatformTestsCXX.cxx.o] Error 1
+make[1]: Leaving directory '/home/krist_lee/projects/qt_vtk_build/Utilities/KWSys/vtksys/CMakeFiles/CMakeTmp'
+make: *** [Makefile:121: cmTC_59b67/fast] Error 2
+
+
+
+Checking whether CXX compiler struct stat has st_mtimespec member failed to compile with the following output:
+Change Dir: /home/krist_lee/projects/qt_vtk_build/Utilities/KWSys/vtksys/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_f4d8d/fast && /usr/bin/make -f CMakeFiles/cmTC_f4d8d.dir/build.make CMakeFiles/cmTC_f4d8d.dir/build
+make[1]: Entering directory '/home/krist_lee/projects/qt_vtk_build/Utilities/KWSys/vtksys/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_f4d8d.dir/kwsysPlatformTestsCXX.cxx.o
+/usr/bin/c++  -DTEST_KWSYS_CXX_STAT_HAS_ST_MTIMESPEC  -fPIE   -std=c++11 -o CMakeFiles/cmTC_f4d8d.dir/kwsysPlatformTestsCXX.cxx.o -c /home/krist_lee/projects/VTK/Utilities/KWSys/vtksys/kwsysPlatformTestsCXX.cxx
+/home/krist_lee/projects/VTK/Utilities/KWSys/vtksys/kwsysPlatformTestsCXX.cxx: In function ‘int main()’:
+/home/krist_lee/projects/VTK/Utilities/KWSys/vtksys/kwsysPlatformTestsCXX.cxx:26:15: error: ‘struct stat’ has no member named ‘st_mtimespec’
+   26 |   (void)stat1.st_mtimespec.tv_sec;
+      |               ^~~~~~~~~~~~
+/home/krist_lee/projects/VTK/Utilities/KWSys/vtksys/kwsysPlatformTestsCXX.cxx:27:15: error: ‘struct stat’ has no member named ‘st_mtimespec’
+   27 |   (void)stat1.st_mtimespec.tv_nsec;
+      |               ^~~~~~~~~~~~
+make[1]: *** [CMakeFiles/cmTC_f4d8d.dir/build.make:66: CMakeFiles/cmTC_f4d8d.dir/kwsysPlatformTestsCXX.cxx.o] Error 1
+make[1]: Leaving directory '/home/krist_lee/projects/qt_vtk_build/Utilities/KWSys/vtksys/CMakeFiles/CMakeTmp'
+make: *** [Makefile:121: cmTC_f4d8d/fast] Error 2
+
+
+
+Performing C SOURCE FILE Test CMAKE_HAVE_LIBC_PTHREAD failed with the following output:
+Change Dir: /home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_a9288/fast && /usr/bin/make -f CMakeFiles/cmTC_a9288.dir/build.make CMakeFiles/cmTC_a9288.dir/build
+make[1]: Entering directory '/home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_a9288.dir/src.c.o
+/usr/bin/cc   -DCMAKE_HAVE_LIBC_PTHREAD -fPIE   -o CMakeFiles/cmTC_a9288.dir/src.c.o   -c /home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTC_a9288
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_a9288.dir/link.txt --verbose=1
+/usr/bin/cc   -DCMAKE_HAVE_LIBC_PTHREAD   -Wl,-lc  -Wl,-lc    CMakeFiles/cmTC_a9288.dir/src.c.o  -o cmTC_a9288 
+/usr/bin/ld: CMakeFiles/cmTC_a9288.dir/src.c.o: in function `main':
+src.c:(.text+0x46): undefined reference to `pthread_create'
+/usr/bin/ld: src.c:(.text+0x52): undefined reference to `pthread_detach'
+/usr/bin/ld: src.c:(.text+0x63): undefined reference to `pthread_join'
+collect2: error: ld returned 1 exit status
+make[1]: *** [CMakeFiles/cmTC_a9288.dir/build.make:87: cmTC_a9288] Error 1
+make[1]: Leaving directory '/home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp'
+make: *** [Makefile:121: cmTC_a9288/fast] Error 2
+
+
+Source file was:
+#include <pthread.h>
+
+void* test_func(void* data)
+{
+  return data;
+}
+
+int main(void)
+{
+  pthread_t thread;
+  pthread_create(&thread, NULL, test_func, NULL);
+  pthread_detach(thread);
+  pthread_join(thread, NULL);
+  pthread_atfork(NULL, NULL, NULL);
+  pthread_exit(NULL);
+
+  return 0;
+}
+
+Determining if the function pthread_create exists in the pthreads failed with the following output:
+Change Dir: /home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_a4e77/fast && /usr/bin/make -f CMakeFiles/cmTC_a4e77.dir/build.make CMakeFiles/cmTC_a4e77.dir/build
+make[1]: Entering directory '/home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_a4e77.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create -fPIE   -o CMakeFiles/cmTC_a4e77.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.16/Modules/CheckFunctionExists.c
+Linking C executable cmTC_a4e77
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_a4e77.dir/link.txt --verbose=1
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create   -Wl,-lc  -Wl,-lc    CMakeFiles/cmTC_a4e77.dir/CheckFunctionExists.c.o  -o cmTC_a4e77  -lpthreads 
+/usr/bin/ld: cannot find -lpthreads
+collect2: error: ld returned 1 exit status
+make[1]: *** [CMakeFiles/cmTC_a4e77.dir/build.make:87: cmTC_a4e77] Error 1
+make[1]: Leaving directory '/home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp'
+make: *** [Makefile:121: cmTC_a4e77/fast] Error 2
+
+
+
+Determining if the function getsockname exists in the socket failed with the following output:
+Change Dir: /home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_973b2/fast && /usr/bin/make -f CMakeFiles/cmTC_973b2.dir/build.make CMakeFiles/cmTC_973b2.dir/build
+make[1]: Entering directory '/home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_973b2.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=getsockname -fPIE   -o CMakeFiles/cmTC_973b2.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.16/Modules/CheckFunctionExists.c
+Linking C executable cmTC_973b2
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_973b2.dir/link.txt --verbose=1
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=getsockname   -Wl,-lc  -Wl,-lc    CMakeFiles/cmTC_973b2.dir/CheckFunctionExists.c.o  -o cmTC_973b2  -lsocket 
+/usr/bin/ld: cannot find -lsocket
+collect2: error: ld returned 1 exit status
+make[1]: *** [CMakeFiles/cmTC_973b2.dir/build.make:87: cmTC_973b2] Error 1
+make[1]: Leaving directory '/home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp'
+make: *** [Makefile:121: cmTC_973b2/fast] Error 2
+
+
+
+Performing C++ SOURCE FILE Test COMPILER_SUPPORT_Wshorten64to32 failed with the following output:
+Change Dir: /home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_cde24/fast && /usr/bin/make -f CMakeFiles/cmTC_cde24.dir/build.make CMakeFiles/cmTC_cde24.dir/build
+make[1]: Entering directory '/home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_cde24.dir/src.cxx.o
+/usr/bin/c++    -std=c++11 -pedantic -Wall -Wextra -Wundef -Wcast-align -Wchar-subscripts -Wnon-virtual-dtor -Wunused-local-typedefs -Wpointer-arith -Wwrite-strings -Wformat-security -DCOMPILER_SUPPORT_Wshorten64to32 -Werror -fPIE   -Wshorten-64-to-32 -std=c++11 -o CMakeFiles/cmTC_cde24.dir/src.cxx.o -c /home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp/src.cxx
+c++: error: unrecognized command line option '-Wshorten-64-to-32'
+make[1]: *** [CMakeFiles/cmTC_cde24.dir/build.make:66: CMakeFiles/cmTC_cde24.dir/src.cxx.o] Error 1
+make[1]: Leaving directory '/home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp'
+make: *** [Makefile:121: cmTC_cde24/fast] Error 2
+
+
+Source file was:
+int main() { return 0; }
+Performing C++ SOURCE FILE Test COMPILER_SUPPORT_Wenumconversion failed with the following output:
+Change Dir: /home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_d478e/fast && /usr/bin/make -f CMakeFiles/cmTC_d478e.dir/build.make CMakeFiles/cmTC_d478e.dir/build
+make[1]: Entering directory '/home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_d478e.dir/src.cxx.o
+/usr/bin/c++    -std=c++11 -pedantic -Wall -Wextra -Wundef -Wcast-align -Wchar-subscripts -Wnon-virtual-dtor -Wunused-local-typedefs -Wpointer-arith -Wwrite-strings -Wformat-security -Wlogical-op -DCOMPILER_SUPPORT_Wenumconversion -Werror -fPIE   -Wenum-conversion -std=c++11 -o CMakeFiles/cmTC_d478e.dir/src.cxx.o -c /home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp/src.cxx
+c++: error: unrecognized command line option '-Wenum-conversion'; did you mean '-Wno-conversion'?
+make[1]: *** [CMakeFiles/cmTC_d478e.dir/build.make:66: CMakeFiles/cmTC_d478e.dir/src.cxx.o] Error 1
+make[1]: Leaving directory '/home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp'
+make: *** [Makefile:121: cmTC_d478e/fast] Error 2
+
+
+Source file was:
+int main() { return 0; }
+Performing C++ SOURCE FILE Test COMPILER_SUPPORT_Wcpp11extensions failed with the following output:
+Change Dir: /home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_b93d0/fast && /usr/bin/make -f CMakeFiles/cmTC_b93d0.dir/build.make CMakeFiles/cmTC_b93d0.dir/build
+make[1]: Entering directory '/home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_b93d0.dir/src.cxx.o
+/usr/bin/c++    -std=c++11 -pedantic -Wall -Wextra -Wundef -Wcast-align -Wchar-subscripts -Wnon-virtual-dtor -Wunused-local-typedefs -Wpointer-arith -Wwrite-strings -Wformat-security -Wlogical-op -DCOMPILER_SUPPORT_Wcpp11extensions -Werror -fPIE   -Wc++11-extensions -std=c++11 -o CMakeFiles/cmTC_b93d0.dir/src.cxx.o -c /home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp/src.cxx
+c++: error: unrecognized command line option '-Wc++11-extensions'; did you mean '-fms-extensions'?
+make[1]: *** [CMakeFiles/cmTC_b93d0.dir/build.make:66: CMakeFiles/cmTC_b93d0.dir/src.cxx.o] Error 1
+make[1]: Leaving directory '/home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp'
+make: *** [Makefile:121: cmTC_b93d0/fast] Error 2
+
+
+Source file was:
+int main() { return 0; }
+Performing C++ SOURCE FILE Test COMPILER_SUPPORT_wd981 failed with the following output:
+Change Dir: /home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_059d3/fast && /usr/bin/make -f CMakeFiles/cmTC_059d3.dir/build.make CMakeFiles/cmTC_059d3.dir/build
+make[1]: Entering directory '/home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_059d3.dir/src.cxx.o
+/usr/bin/c++    -std=c++11 -pedantic -Wall -Wextra -Wundef -Wcast-align -Wchar-subscripts -Wnon-virtual-dtor -Wunused-local-typedefs -Wpointer-arith -Wwrite-strings -Wformat-security -Wlogical-op -Wdouble-promotion -Wno-psabi -Wno-variadic-macros -Wno-long-long -fno-check-new -fno-common -fstrict-aliasing -DCOMPILER_SUPPORT_wd981 -Werror -fPIE   -wd981 -std=c++11 -o CMakeFiles/cmTC_059d3.dir/src.cxx.o -c /home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp/src.cxx
+c++: error: unrecognized command line option '-wd981'
+make[1]: *** [CMakeFiles/cmTC_059d3.dir/build.make:66: CMakeFiles/cmTC_059d3.dir/src.cxx.o] Error 1
+make[1]: Leaving directory '/home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp'
+make: *** [Makefile:121: cmTC_059d3/fast] Error 2
+
+
+Source file was:
+int main() { return 0; }
+Performing C++ SOURCE FILE Test COMPILER_SUPPORT_wd2304 failed with the following output:
+Change Dir: /home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_39dc0/fast && /usr/bin/make -f CMakeFiles/cmTC_39dc0.dir/build.make CMakeFiles/cmTC_39dc0.dir/build
+make[1]: Entering directory '/home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_39dc0.dir/src.cxx.o
+/usr/bin/c++    -std=c++11 -pedantic -Wall -Wextra -Wundef -Wcast-align -Wchar-subscripts -Wnon-virtual-dtor -Wunused-local-typedefs -Wpointer-arith -Wwrite-strings -Wformat-security -Wlogical-op -Wdouble-promotion -Wno-psabi -Wno-variadic-macros -Wno-long-long -fno-check-new -fno-common -fstrict-aliasing -DCOMPILER_SUPPORT_wd2304 -Werror -fPIE   -wd2304 -std=c++11 -o CMakeFiles/cmTC_39dc0.dir/src.cxx.o -c /home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp/src.cxx
+c++: error: unrecognized command line option '-wd2304'
+make[1]: *** [CMakeFiles/cmTC_39dc0.dir/build.make:66: CMakeFiles/cmTC_39dc0.dir/src.cxx.o] Error 1
+make[1]: Leaving directory '/home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp'
+make: *** [Makefile:121: cmTC_39dc0/fast] Error 2
+
+
+Source file was:
+int main() { return 0; }
+Performing C++ SOURCE FILE Test COMPILER_SUPPORT_STRICTANSI failed with the following output:
+Change Dir: /home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_2fdab/fast && /usr/bin/make -f CMakeFiles/cmTC_2fdab.dir/build.make CMakeFiles/cmTC_2fdab.dir/build
+make[1]: Entering directory '/home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_2fdab.dir/src.cxx.o
+/usr/bin/c++    -std=c++11 -pedantic -Wall -Wextra -Wundef -Wcast-align -Wchar-subscripts -Wnon-virtual-dtor -Wunused-local-typedefs -Wpointer-arith -Wwrite-strings -Wformat-security -Wlogical-op -Wdouble-promotion -Wno-psabi -Wno-variadic-macros -Wno-long-long -fno-check-new -fno-common -fstrict-aliasing -DCOMPILER_SUPPORT_STRICTANSI -Werror -fPIE   -strict-ansi -std=c++11 -o CMakeFiles/cmTC_2fdab.dir/src.cxx.o -c /home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp/src.cxx
+c++: error: unrecognized command line option '-strict-ansi'; did you mean '-fstrict-enums'?
+make[1]: *** [CMakeFiles/cmTC_2fdab.dir/build.make:66: CMakeFiles/cmTC_2fdab.dir/src.cxx.o] Error 1
+make[1]: Leaving directory '/home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp'
+make: *** [Makefile:121: cmTC_2fdab/fast] Error 2
+
+
+Source file was:
+int main() { return 0; }
+Performing C++ SOURCE FILE Test COMPILER_SUPPORT_Qunusedarguments failed with the following output:
+Change Dir: /home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_e9883/fast && /usr/bin/make -f CMakeFiles/cmTC_e9883.dir/build.make CMakeFiles/cmTC_e9883.dir/build
+make[1]: Entering directory '/home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_e9883.dir/src.cxx.o
+/usr/bin/c++    -std=c++11 -pedantic -Wall -Wextra -Wundef -Wcast-align -Wchar-subscripts -Wnon-virtual-dtor -Wunused-local-typedefs -Wpointer-arith -Wwrite-strings -Wformat-security -Wlogical-op -Wdouble-promotion -Wno-psabi -Wno-variadic-macros -Wno-long-long -fno-check-new -fno-common -fstrict-aliasing -DCOMPILER_SUPPORT_Qunusedarguments -Werror -fPIE   -Qunused-arguments -std=c++11 -o CMakeFiles/cmTC_e9883.dir/src.cxx.o -c /home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp/src.cxx
+c++: error: unrecognized command line option '-Qunused-arguments'
+make[1]: *** [CMakeFiles/cmTC_e9883.dir/build.make:66: CMakeFiles/cmTC_e9883.dir/src.cxx.o] Error 1
+make[1]: Leaving directory '/home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp'
+make: *** [Makefile:121: cmTC_e9883/fast] Error 2
+
+
+Source file was:
+int main() { return 0; }
+Determining if the include file sys/endian.h exists failed with the following output:
+Change Dir: /home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_06ab4/fast && /usr/bin/make -f CMakeFiles/cmTC_06ab4.dir/build.make CMakeFiles/cmTC_06ab4.dir/build
+make[1]: Entering directory '/home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_06ab4.dir/CheckIncludeFile.c.o
+/usr/bin/cc   -fPIE   -o CMakeFiles/cmTC_06ab4.dir/CheckIncludeFile.c.o   -c /home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+/home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp/CheckIncludeFile.c:1:10: fatal error: sys/endian.h: No such file or directory
+    1 | #include <sys/endian.h>
+      |          ^~~~~~~~~~~~~~
+compilation terminated.
+make[1]: *** [CMakeFiles/cmTC_06ab4.dir/build.make:66: CMakeFiles/cmTC_06ab4.dir/CheckIncludeFile.c.o] Error 1
+make[1]: Leaving directory '/home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp'
+make: *** [Makefile:121: cmTC_06ab4/fast] Error 2
+
+
+
+Determining if the HAVE_BSWAP_16 exist failed with the following output:
+Change Dir: /home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_70b63/fast && /usr/bin/make -f CMakeFiles/cmTC_70b63.dir/build.make CMakeFiles/cmTC_70b63.dir/build
+make[1]: Entering directory '/home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_70b63.dir/CheckSymbolExists.c.o
+/usr/bin/cc   -fPIE   -o CMakeFiles/cmTC_70b63.dir/CheckSymbolExists.c.o   -c /home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+/home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp/CheckSymbolExists.c: In function ‘main’:
+/home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:8:19: error: ‘HAVE_BSWAP_16’ undeclared (first use in this function)
+    8 |   return ((int*)(&HAVE_BSWAP_16))[argc];
+      |                   ^~~~~~~~~~~~~
+/home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:8:19: note: each undeclared identifier is reported only once for each function it appears in
+make[1]: *** [CMakeFiles/cmTC_70b63.dir/build.make:66: CMakeFiles/cmTC_70b63.dir/CheckSymbolExists.c.o] Error 1
+make[1]: Leaving directory '/home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp'
+make: *** [Makefile:121: cmTC_70b63/fast] Error 2
+
+
+File /home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <byteswap.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef HAVE_BSWAP_16
+  return ((int*)(&HAVE_BSWAP_16))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the HAVE_BSWAP_32 exist failed with the following output:
+Change Dir: /home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_96a20/fast && /usr/bin/make -f CMakeFiles/cmTC_96a20.dir/build.make CMakeFiles/cmTC_96a20.dir/build
+make[1]: Entering directory '/home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_96a20.dir/CheckSymbolExists.c.o
+/usr/bin/cc   -fPIE   -o CMakeFiles/cmTC_96a20.dir/CheckSymbolExists.c.o   -c /home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+/home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp/CheckSymbolExists.c: In function ‘main’:
+/home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:8:19: error: ‘HAVE_BSWAP_32’ undeclared (first use in this function)
+    8 |   return ((int*)(&HAVE_BSWAP_32))[argc];
+      |                   ^~~~~~~~~~~~~
+/home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:8:19: note: each undeclared identifier is reported only once for each function it appears in
+make[1]: *** [CMakeFiles/cmTC_96a20.dir/build.make:66: CMakeFiles/cmTC_96a20.dir/CheckSymbolExists.c.o] Error 1
+make[1]: Leaving directory '/home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp'
+make: *** [Makefile:121: cmTC_96a20/fast] Error 2
+
+
+File /home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <byteswap.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef HAVE_BSWAP_32
+  return ((int*)(&HAVE_BSWAP_32))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the HAVE_BSWAP_64 exist failed with the following output:
+Change Dir: /home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_c9769/fast && /usr/bin/make -f CMakeFiles/cmTC_c9769.dir/build.make CMakeFiles/cmTC_c9769.dir/build
+make[1]: Entering directory '/home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_c9769.dir/CheckSymbolExists.c.o
+/usr/bin/cc   -fPIE   -o CMakeFiles/cmTC_c9769.dir/CheckSymbolExists.c.o   -c /home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+/home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp/CheckSymbolExists.c: In function ‘main’:
+/home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:8:19: error: ‘HAVE_BSWAP_64’ undeclared (first use in this function)
+    8 |   return ((int*)(&HAVE_BSWAP_64))[argc];
+      |                   ^~~~~~~~~~~~~
+/home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:8:19: note: each undeclared identifier is reported only once for each function it appears in
+make[1]: *** [CMakeFiles/cmTC_c9769.dir/build.make:66: CMakeFiles/cmTC_c9769.dir/CheckSymbolExists.c.o] Error 1
+make[1]: Leaving directory '/home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp'
+make: *** [Makefile:121: cmTC_c9769/fast] Error 2
+
+
+File /home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <byteswap.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef HAVE_BSWAP_64
+  return ((int*)(&HAVE_BSWAP_64))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining size of __int64 failed with the following output:
+Change Dir: /home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_c4457/fast && /usr/bin/make -f CMakeFiles/cmTC_c4457.dir/build.make CMakeFiles/cmTC_c4457.dir/build
+make[1]: Entering directory '/home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_c4457.dir/__INT64.c.o
+/usr/bin/cc   -fPIE   -o CMakeFiles/cmTC_c4457.dir/__INT64.c.o   -c /home/krist_lee/projects/qt_vtk_build/CMakeFiles/CheckTypeSize/__INT64.c
+/home/krist_lee/projects/qt_vtk_build/CMakeFiles/CheckTypeSize/__INT64.c:23:22: error: ‘__int64’ undeclared here (not in a function); did you mean ‘__int64_t’?
+   23 | #define SIZE (sizeof(__int64))
+      |                      ^~~~~~~
+/home/krist_lee/projects/qt_vtk_build/CMakeFiles/CheckTypeSize/__INT64.c:25:12: note: in expansion of macro ‘SIZE’
+   25 |   ('0' + ((SIZE / 10000)%10)),
+      |            ^~~~
+make[1]: *** [CMakeFiles/cmTC_c4457.dir/build.make:66: CMakeFiles/cmTC_c4457.dir/__INT64.c.o] Error 1
+make[1]: Leaving directory '/home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp'
+make: *** [Makefile:121: cmTC_c4457/fast] Error 2
+
+
+/home/krist_lee/projects/qt_vtk_build/CMakeFiles/CheckTypeSize/__INT64.c:
+#include <sys/types.h>
+#include <stdint.h>
+#include <stddef.h>
+
+
+#undef KEY
+#if defined(__i386)
+# define KEY '_','_','i','3','8','6'
+#elif defined(__x86_64)
+# define KEY '_','_','x','8','6','_','6','4'
+#elif defined(__ppc__)
+# define KEY '_','_','p','p','c','_','_'
+#elif defined(__ppc64__)
+# define KEY '_','_','p','p','c','6','4','_','_'
+#elif defined(__aarch64__)
+# define KEY '_','_','a','a','r','c','h','6','4','_','_'
+#elif defined(__ARM_ARCH_7A__)
+# define KEY '_','_','A','R','M','_','A','R','C','H','_','7','A','_','_'
+#elif defined(__ARM_ARCH_7S__)
+# define KEY '_','_','A','R','M','_','A','R','C','H','_','7','S','_','_'
+#endif
+
+#define SIZE (sizeof(__int64))
+static char info_size[] =  {'I', 'N', 'F', 'O', ':', 's','i','z','e','[',
+  ('0' + ((SIZE / 10000)%10)),
+  ('0' + ((SIZE / 1000)%10)),
+  ('0' + ((SIZE / 100)%10)),
+  ('0' + ((SIZE / 10)%10)),
+  ('0' +  (SIZE    % 10)),
+  ']',
+#ifdef KEY
+  ' ','k','e','y','[', KEY, ']',
+#endif
+  '\0'};
+
+#ifdef __CLASSIC_C__
+int main(argc, argv) int argc; char *argv[];
+#else
+int main(int argc, char *argv[])
+#endif
+{
+  int require = 0;
+  require += info_size[argc];
+  (void)argv;
+  return require;
+}
+
+
+Determining size of unsigned __int64 failed with the following output:
+Change Dir: /home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_91f05/fast && /usr/bin/make -f CMakeFiles/cmTC_91f05.dir/build.make CMakeFiles/cmTC_91f05.dir/build
+make[1]: Entering directory '/home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_91f05.dir/UNSIGNED___INT64.c.o
+/usr/bin/cc   -fPIE   -o CMakeFiles/cmTC_91f05.dir/UNSIGNED___INT64.c.o   -c /home/krist_lee/projects/qt_vtk_build/CMakeFiles/CheckTypeSize/UNSIGNED___INT64.c
+/home/krist_lee/projects/qt_vtk_build/CMakeFiles/CheckTypeSize/UNSIGNED___INT64.c:23:31: error: expected ‘)’ before ‘__int64’
+   23 | #define SIZE (sizeof(unsigned __int64))
+      |                     ~         ^~~~~~~
+/home/krist_lee/projects/qt_vtk_build/CMakeFiles/CheckTypeSize/UNSIGNED___INT64.c:25:12: note: in expansion of macro ‘SIZE’
+   25 |   ('0' + ((SIZE / 10000)%10)),
+      |            ^~~~
+/home/krist_lee/projects/qt_vtk_build/CMakeFiles/CheckTypeSize/UNSIGNED___INT64.c:23:31: error: expected ‘)’ before ‘__int64’
+   23 | #define SIZE (sizeof(unsigned __int64))
+      |                     ~         ^~~~~~~
+/home/krist_lee/projects/qt_vtk_build/CMakeFiles/CheckTypeSize/UNSIGNED___INT64.c:26:12: note: in expansion of macro ‘SIZE’
+   26 |   ('0' + ((SIZE / 1000)%10)),
+      |            ^~~~
+/home/krist_lee/projects/qt_vtk_build/CMakeFiles/CheckTypeSize/UNSIGNED___INT64.c:23:31: error: expected ‘)’ before ‘__int64’
+   23 | #define SIZE (sizeof(unsigned __int64))
+      |                     ~         ^~~~~~~
+/home/krist_lee/projects/qt_vtk_build/CMakeFiles/CheckTypeSize/UNSIGNED___INT64.c:27:12: note: in expansion of macro ‘SIZE’
+   27 |   ('0' + ((SIZE / 100)%10)),
+      |            ^~~~
+/home/krist_lee/projects/qt_vtk_build/CMakeFiles/CheckTypeSize/UNSIGNED___INT64.c:23:31: error: expected ‘)’ before ‘__int64’
+   23 | #define SIZE (sizeof(unsigned __int64))
+      |                     ~         ^~~~~~~
+/home/krist_lee/projects/qt_vtk_build/CMakeFiles/CheckTypeSize/UNSIGNED___INT64.c:28:12: note: in expansion of macro ‘SIZE’
+   28 |   ('0' + ((SIZE / 10)%10)),
+      |            ^~~~
+/home/krist_lee/projects/qt_vtk_build/CMakeFiles/CheckTypeSize/UNSIGNED___INT64.c:23:31: error: expected ‘)’ before ‘__int64’
+   23 | #define SIZE (sizeof(unsigned __int64))
+      |                     ~         ^~~~~~~
+/home/krist_lee/projects/qt_vtk_build/CMakeFiles/CheckTypeSize/UNSIGNED___INT64.c:29:12: note: in expansion of macro ‘SIZE’
+   29 |   ('0' +  (SIZE    % 10)),
+      |            ^~~~
+make[1]: *** [CMakeFiles/cmTC_91f05.dir/build.make:66: CMakeFiles/cmTC_91f05.dir/UNSIGNED___INT64.c.o] Error 1
+make[1]: Leaving directory '/home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp'
+make: *** [Makefile:121: cmTC_91f05/fast] Error 2
+
+
+/home/krist_lee/projects/qt_vtk_build/CMakeFiles/CheckTypeSize/UNSIGNED___INT64.c:
+#include <sys/types.h>
+#include <stdint.h>
+#include <stddef.h>
+
+
+#undef KEY
+#if defined(__i386)
+# define KEY '_','_','i','3','8','6'
+#elif defined(__x86_64)
+# define KEY '_','_','x','8','6','_','6','4'
+#elif defined(__ppc__)
+# define KEY '_','_','p','p','c','_','_'
+#elif defined(__ppc64__)
+# define KEY '_','_','p','p','c','6','4','_','_'
+#elif defined(__aarch64__)
+# define KEY '_','_','a','a','r','c','h','6','4','_','_'
+#elif defined(__ARM_ARCH_7A__)
+# define KEY '_','_','A','R','M','_','A','R','C','H','_','7','A','_','_'
+#elif defined(__ARM_ARCH_7S__)
+# define KEY '_','_','A','R','M','_','A','R','C','H','_','7','S','_','_'
+#endif
+
+#define SIZE (sizeof(unsigned __int64))
+static char info_size[] =  {'I', 'N', 'F', 'O', ':', 's','i','z','e','[',
+  ('0' + ((SIZE / 10000)%10)),
+  ('0' + ((SIZE / 1000)%10)),
+  ('0' + ((SIZE / 100)%10)),
+  ('0' + ((SIZE / 10)%10)),
+  ('0' +  (SIZE    % 10)),
+  ']',
+#ifdef KEY
+  ' ','k','e','y','[', KEY, ']',
+#endif
+  '\0'};
+
+#ifdef __CLASSIC_C__
+int main(argc, argv) int argc; char *argv[];
+#else
+int main(int argc, char *argv[])
+#endif
+{
+  int require = 0;
+  require += info_size[argc];
+  (void)argv;
+  return require;
+}
+
+
+Determining if the arc4random_buf exist failed with the following output:
+Change Dir: /home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_3d3a6/fast && /usr/bin/make -f CMakeFiles/cmTC_3d3a6.dir/build.make CMakeFiles/cmTC_3d3a6.dir/build
+make[1]: Entering directory '/home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_3d3a6.dir/CheckSymbolExists.c.o
+/usr/bin/cc   -fPIE   -o CMakeFiles/cmTC_3d3a6.dir/CheckSymbolExists.c.o   -c /home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+/home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp/CheckSymbolExists.c: In function ‘main’:
+/home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:8:19: error: ‘arc4random_buf’ undeclared (first use in this function)
+    8 |   return ((int*)(&arc4random_buf))[argc];
+      |                   ^~~~~~~~~~~~~~
+/home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:8:19: note: each undeclared identifier is reported only once for each function it appears in
+make[1]: *** [CMakeFiles/cmTC_3d3a6.dir/build.make:66: CMakeFiles/cmTC_3d3a6.dir/CheckSymbolExists.c.o] Error 1
+make[1]: Leaving directory '/home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp'
+make: *** [Makefile:121: cmTC_3d3a6/fast] Error 2
+
+
+File /home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <stdlib.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef arc4random_buf
+  return ((int*)(&arc4random_buf))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the arc4random exist failed with the following output:
+Change Dir: /home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_a56b0/fast && /usr/bin/make -f CMakeFiles/cmTC_a56b0.dir/build.make CMakeFiles/cmTC_a56b0.dir/build
+make[1]: Entering directory '/home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_a56b0.dir/CheckSymbolExists.c.o
+/usr/bin/cc   -fPIE   -o CMakeFiles/cmTC_a56b0.dir/CheckSymbolExists.c.o   -c /home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+/home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp/CheckSymbolExists.c: In function ‘main’:
+/home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:8:19: error: ‘arc4random’ undeclared (first use in this function); did you mean ‘srandom’?
+    8 |   return ((int*)(&arc4random))[argc];
+      |                   ^~~~~~~~~~
+      |                   srandom
+/home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:8:19: note: each undeclared identifier is reported only once for each function it appears in
+make[1]: *** [CMakeFiles/cmTC_a56b0.dir/build.make:66: CMakeFiles/cmTC_a56b0.dir/CheckSymbolExists.c.o] Error 1
+make[1]: Leaving directory '/home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp'
+make: *** [Makefile:121: cmTC_a56b0/fast] Error 2
+
+
+File /home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <stdlib.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef arc4random
+  return ((int*)(&arc4random))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the off_t exist failed with the following output:
+Change Dir: /home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_b3051/fast && /usr/bin/make -f CMakeFiles/cmTC_b3051.dir/build.make CMakeFiles/cmTC_b3051.dir/build
+make[1]: Entering directory '/home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_b3051.dir/CheckSymbolExists.c.o
+/usr/bin/cc   -fPIE   -o CMakeFiles/cmTC_b3051.dir/CheckSymbolExists.c.o   -c /home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+/home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp/CheckSymbolExists.c: In function ‘main’:
+/home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:8:19: error: expected expression before ‘off_t’
+    8 |   return ((int*)(&off_t))[argc];
+      |                   ^~~~~
+make[1]: *** [CMakeFiles/cmTC_b3051.dir/build.make:66: CMakeFiles/cmTC_b3051.dir/CheckSymbolExists.c.o] Error 1
+make[1]: Leaving directory '/home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp'
+make: *** [Makefile:121: cmTC_b3051/fast] Error 2
+
+
+File /home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <sys/types.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef off_t
+  return ((int*)(&off_t))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the size_t exist failed with the following output:
+Change Dir: /home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_134a5/fast && /usr/bin/make -f CMakeFiles/cmTC_134a5.dir/build.make CMakeFiles/cmTC_134a5.dir/build
+make[1]: Entering directory '/home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_134a5.dir/CheckSymbolExists.c.o
+/usr/bin/cc   -fPIE   -o CMakeFiles/cmTC_134a5.dir/CheckSymbolExists.c.o   -c /home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+/home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp/CheckSymbolExists.c: In function ‘main’:
+/home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:8:19: error: expected expression before ‘size_t’
+    8 |   return ((int*)(&size_t))[argc];
+      |                   ^~~~~~
+make[1]: *** [CMakeFiles/cmTC_134a5.dir/build.make:66: CMakeFiles/cmTC_134a5.dir/CheckSymbolExists.c.o] Error 1
+make[1]: Leaving directory '/home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp'
+make: *** [Makefile:121: cmTC_134a5/fast] Error 2
+
+
+File /home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <sys/types.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef size_t
+  return ((int*)(&size_t))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the include file io.h exists failed with the following output:
+Change Dir: /home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_6b73e/fast && /usr/bin/make -f CMakeFiles/cmTC_6b73e.dir/build.make CMakeFiles/cmTC_6b73e.dir/build
+make[1]: Entering directory '/home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_6b73e.dir/CheckIncludeFile.c.o
+/usr/bin/cc   -Wall -Winline -W -Wformat-security -Wpointer-arith -Wdisabled-optimization -Wno-unknown-pragmas -Wdeclaration-after-statement -fstrict-aliasing  -fPIE   -o CMakeFiles/cmTC_6b73e.dir/CheckIncludeFile.c.o   -c /home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+/home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp/CheckIncludeFile.c:1:10: fatal error: io.h: No such file or directory
+    1 | #include <io.h>
+      |          ^~~~~~
+compilation terminated.
+make[1]: *** [CMakeFiles/cmTC_6b73e.dir/build.make:66: CMakeFiles/cmTC_6b73e.dir/CheckIncludeFile.c.o] Error 1
+make[1]: Leaving directory '/home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp'
+make: *** [Makefile:121: cmTC_6b73e/fast] Error 2
+
+
+
+Determining if files sys/file.h;sys/ioctl.h;sys/resource.h;sys/stat.h;sys/time.h;sys/types.h;features.h;dirent.h;setjmp.h;stddef.h;stdint.h;unistd.h;io.h exist failed with the following output:
+Change Dir: /home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_abd6c/fast && /usr/bin/make -f CMakeFiles/cmTC_abd6c.dir/build.make CMakeFiles/cmTC_abd6c.dir/build
+make[1]: Entering directory '/home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_abd6c.dir/H5_HAVE_IO_H.c.o
+/usr/bin/cc   -fPIE   -o CMakeFiles/cmTC_abd6c.dir/H5_HAVE_IO_H.c.o   -c /home/krist_lee/projects/qt_vtk_build/CMakeFiles/CheckIncludeFiles/H5_HAVE_IO_H.c
+/home/krist_lee/projects/qt_vtk_build/CMakeFiles/CheckIncludeFiles/H5_HAVE_IO_H.c:14:10: fatal error: io.h: No such file or directory
+   14 | #include <io.h>
+      |          ^~~~~~
+compilation terminated.
+make[1]: *** [CMakeFiles/cmTC_abd6c.dir/build.make:66: CMakeFiles/cmTC_abd6c.dir/H5_HAVE_IO_H.c.o] Error 1
+make[1]: Leaving directory '/home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp'
+make: *** [Makefile:121: cmTC_abd6c/fast] Error 2
+
+
+Source:
+/* */
+#include <sys/file.h>
+#include <sys/ioctl.h>
+#include <sys/resource.h>
+#include <sys/stat.h>
+#include <sys/time.h>
+#include <sys/types.h>
+#include <features.h>
+#include <dirent.h>
+#include <setjmp.h>
+#include <stddef.h>
+#include <stdint.h>
+#include <unistd.h>
+#include <io.h>
+
+
+int main(void){return 0;}
+
+Determining if files sys/file.h;sys/ioctl.h;sys/resource.h;sys/stat.h;sys/time.h;sys/types.h;features.h;dirent.h;setjmp.h;stddef.h;stdint.h;unistd.h;winsock2.h exist failed with the following output:
+Change Dir: /home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_0527a/fast && /usr/bin/make -f CMakeFiles/cmTC_0527a.dir/build.make CMakeFiles/cmTC_0527a.dir/build
+make[1]: Entering directory '/home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_0527a.dir/H5_HAVE_WINSOCK2_H.c.o
+/usr/bin/cc   -fPIE   -o CMakeFiles/cmTC_0527a.dir/H5_HAVE_WINSOCK2_H.c.o   -c /home/krist_lee/projects/qt_vtk_build/CMakeFiles/CheckIncludeFiles/H5_HAVE_WINSOCK2_H.c
+/home/krist_lee/projects/qt_vtk_build/CMakeFiles/CheckIncludeFiles/H5_HAVE_WINSOCK2_H.c:14:10: fatal error: winsock2.h: No such file or directory
+   14 | #include <winsock2.h>
+      |          ^~~~~~~~~~~~
+compilation terminated.
+make[1]: *** [CMakeFiles/cmTC_0527a.dir/build.make:66: CMakeFiles/cmTC_0527a.dir/H5_HAVE_WINSOCK2_H.c.o] Error 1
+make[1]: Leaving directory '/home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp'
+make: *** [Makefile:121: cmTC_0527a/fast] Error 2
+
+
+Source:
+/* */
+#include <sys/file.h>
+#include <sys/ioctl.h>
+#include <sys/resource.h>
+#include <sys/stat.h>
+#include <sys/time.h>
+#include <sys/types.h>
+#include <features.h>
+#include <dirent.h>
+#include <setjmp.h>
+#include <stddef.h>
+#include <stdint.h>
+#include <unistd.h>
+#include <winsock2.h>
+
+
+int main(void){return 0;}
+
+Determining size of __int64 failed with the following output:
+Change Dir: /home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_a6a23/fast && /usr/bin/make -f CMakeFiles/cmTC_a6a23.dir/build.make CMakeFiles/cmTC_a6a23.dir/build
+make[1]: Entering directory '/home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_a6a23.dir/H5_SIZEOF___INT64.c.o
+/usr/bin/cc -D_FILE_OFFSET_BITS=64 -D_LARGEFILE64_SOURCE -D_LARGEFILE_SOURCE  -fPIE   -o CMakeFiles/cmTC_a6a23.dir/H5_SIZEOF___INT64.c.o   -c /home/krist_lee/projects/qt_vtk_build/CMakeFiles/CheckTypeSize/H5_SIZEOF___INT64.c
+/home/krist_lee/projects/qt_vtk_build/CMakeFiles/CheckTypeSize/H5_SIZEOF___INT64.c:23:22: error: ‘__int64’ undeclared here (not in a function); did you mean ‘__int64_t’?
+   23 | #define SIZE (sizeof(__int64))
+      |                      ^~~~~~~
+/home/krist_lee/projects/qt_vtk_build/CMakeFiles/CheckTypeSize/H5_SIZEOF___INT64.c:25:12: note: in expansion of macro ‘SIZE’
+   25 |   ('0' + ((SIZE / 10000)%10)),
+      |            ^~~~
+make[1]: *** [CMakeFiles/cmTC_a6a23.dir/build.make:66: CMakeFiles/cmTC_a6a23.dir/H5_SIZEOF___INT64.c.o] Error 1
+make[1]: Leaving directory '/home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp'
+make: *** [Makefile:121: cmTC_a6a23/fast] Error 2
+
+
+/home/krist_lee/projects/qt_vtk_build/CMakeFiles/CheckTypeSize/H5_SIZEOF___INT64.c:
+#include <sys/types.h>
+#include <stdint.h>
+#include <stddef.h>
+
+
+#undef KEY
+#if defined(__i386)
+# define KEY '_','_','i','3','8','6'
+#elif defined(__x86_64)
+# define KEY '_','_','x','8','6','_','6','4'
+#elif defined(__ppc__)
+# define KEY '_','_','p','p','c','_','_'
+#elif defined(__ppc64__)
+# define KEY '_','_','p','p','c','6','4','_','_'
+#elif defined(__aarch64__)
+# define KEY '_','_','a','a','r','c','h','6','4','_','_'
+#elif defined(__ARM_ARCH_7A__)
+# define KEY '_','_','A','R','M','_','A','R','C','H','_','7','A','_','_'
+#elif defined(__ARM_ARCH_7S__)
+# define KEY '_','_','A','R','M','_','A','R','C','H','_','7','S','_','_'
+#endif
+
+#define SIZE (sizeof(__int64))
+static char info_size[] =  {'I', 'N', 'F', 'O', ':', 's','i','z','e','[',
+  ('0' + ((SIZE / 10000)%10)),
+  ('0' + ((SIZE / 1000)%10)),
+  ('0' + ((SIZE / 100)%10)),
+  ('0' + ((SIZE / 10)%10)),
+  ('0' +  (SIZE    % 10)),
+  ']',
+#ifdef KEY
+  ' ','k','e','y','[', KEY, ']',
+#endif
+  '\0'};
+
+#ifdef __CLASSIC_C__
+int main(argc, argv) int argc; char *argv[];
+#else
+int main(int argc, char *argv[])
+#endif
+{
+  int require = 0;
+  require += info_size[argc];
+  (void)argv;
+  return require;
+}
+
+
+Performing C SOURCE FILE Test H5_HAVE___TM_GMTOFF failed with the following output:
+Change Dir: /home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_f3e41/fast && /usr/bin/make -f CMakeFiles/cmTC_f3e41.dir/build.make CMakeFiles/cmTC_f3e41.dir/build
+make[1]: Entering directory '/home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_f3e41.dir/src.c.o
+/usr/bin/cc -D_FILE_OFFSET_BITS=64 -D_LARGEFILE64_SOURCE -D_LARGEFILE_SOURCE  -DH5_HAVE___TM_GMTOFF -fPIE   -o CMakeFiles/cmTC_f3e41.dir/src.c.o   -c /home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp/src.c
+/home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp/src.c: In function ‘main’:
+/home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp/src.c:6:34: error: ‘struct tm’ has no member named ‘__tm_gmtoff’; did you mean ‘tm_gmtoff’?
+    6 |   (void)sizeof(((struct tm *)0)->__tm_gmtoff);
+      |                                  ^~~~~~~~~~~
+      |                                  tm_gmtoff
+make[1]: *** [CMakeFiles/cmTC_f3e41.dir/build.make:66: CMakeFiles/cmTC_f3e41.dir/src.c.o] Error 1
+make[1]: Leaving directory '/home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp'
+make: *** [Makefile:121: cmTC_f3e41/fast] Error 2
+
+
+Source file was:
+
+#include <time.h>
+
+int main()
+{
+  (void)sizeof(((struct tm *)0)->__tm_gmtoff);
+  return 0;
+}
+
+Performing C SOURCE FILE Test H5_HAVE_STRUCT_TIMEZONE failed with the following output:
+Change Dir: /home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_5afbb/fast && /usr/bin/make -f CMakeFiles/cmTC_5afbb.dir/build.make CMakeFiles/cmTC_5afbb.dir/build
+make[1]: Entering directory '/home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_5afbb.dir/src.c.o
+/usr/bin/cc -D_FILE_OFFSET_BITS=64 -D_LARGEFILE64_SOURCE -D_LARGEFILE_SOURCE  -DH5_HAVE_STRUCT_TIMEZONE -fPIE   -o CMakeFiles/cmTC_5afbb.dir/src.c.o   -c /home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp/src.c
+/home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp/src.c: In function ‘main’:
+/home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp/src.c:8:32: error: ‘struct tm’ has no member named ‘tz_minuteswest’
+    8 |   (void)sizeof(((struct tm *)0)->tz_minuteswest);
+      |                                ^~
+make[1]: *** [CMakeFiles/cmTC_5afbb.dir/build.make:66: CMakeFiles/cmTC_5afbb.dir/src.c.o] Error 1
+make[1]: Leaving directory '/home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp'
+make: *** [Makefile:121: cmTC_5afbb/fast] Error 2
+
+
+Source file was:
+
+#include <sys/types.h>
+#include <sys/time.h>
+#include <time.h>
+
+int main()
+{
+  (void)sizeof(((struct tm *)0)->tz_minuteswest);
+  return 0;
+}
+
+Performing Other Test HAVE_TM_ZONE failed with the following output:
+Change Dir: /home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_53b2f/fast && /usr/bin/make -f CMakeFiles/cmTC_53b2f.dir/build.make CMakeFiles/cmTC_53b2f.dir/build
+make[1]: Entering directory '/home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_53b2f.dir/HDFTests.c.o
+/usr/bin/cc   -fPIE   -DHAVE_TM_ZONE  -DHAVE_SYS_TIME_H -DHAVE_UNISTD_H -DHAVE_SYS_TYPES_H -D_FILE_OFFSET_BITS=64 -D_LARGEFILE64_SOURCE -D_LARGEFILE_SOURCE -o CMakeFiles/cmTC_53b2f.dir/HDFTests.c.o   -c /home/krist_lee/projects/VTK/ThirdParty/hdf5/vtkhdf5/config/cmake_ext_mod/HDFTests.c
+Linking C executable cmTC_53b2f
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_53b2f.dir/link.txt --verbose=1
+/usr/bin/cc      -Wl,-lc  -Wl,-lc    CMakeFiles/cmTC_53b2f.dir/HDFTests.c.o  -o cmTC_53b2f 
+/usr/bin/ld: /usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/Scrt1.o: in function `_start':
+(.text+0x24): undefined reference to `main'
+collect2: error: ld returned 1 exit status
+make[1]: *** [CMakeFiles/cmTC_53b2f.dir/build.make:87: cmTC_53b2f] Error 1
+make[1]: Leaving directory '/home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp'
+make: *** [Makefile:121: cmTC_53b2f/fast] Error 2
+
+
+Performing Other Test HAVE_STRUCT_TM_TM_ZONE failed with the following output:
+Change Dir: /home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_963ea/fast && /usr/bin/make -f CMakeFiles/cmTC_963ea.dir/build.make CMakeFiles/cmTC_963ea.dir/build
+make[1]: Entering directory '/home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_963ea.dir/HDFTests.c.o
+/usr/bin/cc   -fPIE   -DHAVE_STRUCT_TM_TM_ZONE  -DHAVE_SYS_TIME_H -DHAVE_UNISTD_H -DHAVE_SYS_TYPES_H -D_FILE_OFFSET_BITS=64 -D_LARGEFILE64_SOURCE -D_LARGEFILE_SOURCE -o CMakeFiles/cmTC_963ea.dir/HDFTests.c.o   -c /home/krist_lee/projects/VTK/ThirdParty/hdf5/vtkhdf5/config/cmake_ext_mod/HDFTests.c
+Linking C executable cmTC_963ea
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_963ea.dir/link.txt --verbose=1
+/usr/bin/cc      -Wl,-lc  -Wl,-lc    CMakeFiles/cmTC_963ea.dir/HDFTests.c.o  -o cmTC_963ea 
+/usr/bin/ld: /usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/Scrt1.o: in function `_start':
+(.text+0x24): undefined reference to `main'
+collect2: error: ld returned 1 exit status
+make[1]: *** [CMakeFiles/cmTC_963ea.dir/build.make:87: cmTC_963ea] Error 1
+make[1]: Leaving directory '/home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp'
+make: *** [Makefile:121: cmTC_963ea/fast] Error 2
+
+
+Performing C SOURCE FILE Test H5_HAVE_STRUCT_VIDEOCONFIG failed with the following output:
+Change Dir: /home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_eed6e/fast && /usr/bin/make -f CMakeFiles/cmTC_eed6e.dir/build.make CMakeFiles/cmTC_eed6e.dir/build
+make[1]: Entering directory '/home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_eed6e.dir/src.c.o
+/usr/bin/cc -D_FILE_OFFSET_BITS=64 -D_LARGEFILE64_SOURCE -D_LARGEFILE_SOURCE  -DH5_HAVE_STRUCT_VIDEOCONFIG -fPIE   -o CMakeFiles/cmTC_eed6e.dir/src.c.o   -c /home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp/src.c
+/home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp/src.c: In function ‘main’:
+/home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp/src.c:5:41: error: dereferencing pointer to incomplete type ‘struct videoconfig’
+    5 |   (void)sizeof(((struct videoconfig *)0)->numtextcols);
+      |                                         ^~
+make[1]: *** [CMakeFiles/cmTC_eed6e.dir/build.make:66: CMakeFiles/cmTC_eed6e.dir/src.c.o] Error 1
+make[1]: Leaving directory '/home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp'
+make: *** [Makefile:121: cmTC_eed6e/fast] Error 2
+
+
+Source file was:
+
+
+int main()
+{
+  (void)sizeof(((struct videoconfig *)0)->numtextcols);
+  return 0;
+}
+
+Performing C SOURCE FILE Test H5_HAVE_STRUCT_TEXT_INFO failed with the following output:
+Change Dir: /home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_42a88/fast && /usr/bin/make -f CMakeFiles/cmTC_42a88.dir/build.make CMakeFiles/cmTC_42a88.dir/build
+make[1]: Entering directory '/home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_42a88.dir/src.c.o
+/usr/bin/cc -D_FILE_OFFSET_BITS=64 -D_LARGEFILE64_SOURCE -D_LARGEFILE_SOURCE  -DH5_HAVE_STRUCT_TEXT_INFO -fPIE   -o CMakeFiles/cmTC_42a88.dir/src.c.o   -c /home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp/src.c
+/home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp/src.c: In function ‘main’:
+/home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp/src.c:5:39: error: dereferencing pointer to incomplete type ‘struct text_info’
+    5 |   (void)sizeof(((struct text_info *)0)->screenwidth);
+      |                                       ^~
+make[1]: *** [CMakeFiles/cmTC_42a88.dir/build.make:66: CMakeFiles/cmTC_42a88.dir/src.c.o] Error 1
+make[1]: Leaving directory '/home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp'
+make: *** [Makefile:121: cmTC_42a88/fast] Error 2
+
+
+Source file was:
+
+
+int main()
+{
+  (void)sizeof(((struct text_info *)0)->screenwidth);
+  return 0;
+}
+
+Determining if the function _getvideoconfig exists failed with the following output:
+Change Dir: /home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_c500e/fast && /usr/bin/make -f CMakeFiles/cmTC_c500e.dir/build.make CMakeFiles/cmTC_c500e.dir/build
+make[1]: Entering directory '/home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_c500e.dir/CheckFunctionExists.c.o
+/usr/bin/cc -D_FILE_OFFSET_BITS=64 -D_LARGEFILE64_SOURCE -D_LARGEFILE_SOURCE  -DCHECK_FUNCTION_EXISTS=_getvideoconfig -fPIE   -o CMakeFiles/cmTC_c500e.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.16/Modules/CheckFunctionExists.c
+Linking C executable cmTC_c500e
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_c500e.dir/link.txt --verbose=1
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=_getvideoconfig   -Wl,-lc  -Wl,-lc    CMakeFiles/cmTC_c500e.dir/CheckFunctionExists.c.o  -o cmTC_c500e 
+/usr/bin/ld: CMakeFiles/cmTC_c500e.dir/CheckFunctionExists.c.o: in function `main':
+CheckFunctionExists.c:(.text+0x14): undefined reference to `_getvideoconfig'
+collect2: error: ld returned 1 exit status
+make[1]: *** [CMakeFiles/cmTC_c500e.dir/build.make:87: cmTC_c500e] Error 1
+make[1]: Leaving directory '/home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp'
+make: *** [Makefile:121: cmTC_c500e/fast] Error 2
+
+
+
+Determining if the function gettextinfo exists failed with the following output:
+Change Dir: /home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_a1e26/fast && /usr/bin/make -f CMakeFiles/cmTC_a1e26.dir/build.make CMakeFiles/cmTC_a1e26.dir/build
+make[1]: Entering directory '/home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_a1e26.dir/CheckFunctionExists.c.o
+/usr/bin/cc -D_FILE_OFFSET_BITS=64 -D_LARGEFILE64_SOURCE -D_LARGEFILE_SOURCE  -DCHECK_FUNCTION_EXISTS=gettextinfo -fPIE   -o CMakeFiles/cmTC_a1e26.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.16/Modules/CheckFunctionExists.c
+Linking C executable cmTC_a1e26
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_a1e26.dir/link.txt --verbose=1
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=gettextinfo   -Wl,-lc  -Wl,-lc    CMakeFiles/cmTC_a1e26.dir/CheckFunctionExists.c.o  -o cmTC_a1e26 
+/usr/bin/ld: CMakeFiles/cmTC_a1e26.dir/CheckFunctionExists.c.o: in function `main':
+CheckFunctionExists.c:(.text+0x14): undefined reference to `gettextinfo'
+collect2: error: ld returned 1 exit status
+make[1]: *** [CMakeFiles/cmTC_a1e26.dir/build.make:87: cmTC_a1e26] Error 1
+make[1]: Leaving directory '/home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp'
+make: *** [Makefile:121: cmTC_a1e26/fast] Error 2
+
+
+
+Determining if the function _scrsize exists failed with the following output:
+Change Dir: /home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_fd32f/fast && /usr/bin/make -f CMakeFiles/cmTC_fd32f.dir/build.make CMakeFiles/cmTC_fd32f.dir/build
+make[1]: Entering directory '/home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_fd32f.dir/CheckFunctionExists.c.o
+/usr/bin/cc -D_FILE_OFFSET_BITS=64 -D_LARGEFILE64_SOURCE -D_LARGEFILE_SOURCE  -DCHECK_FUNCTION_EXISTS=_scrsize -fPIE   -o CMakeFiles/cmTC_fd32f.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.16/Modules/CheckFunctionExists.c
+Linking C executable cmTC_fd32f
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_fd32f.dir/link.txt --verbose=1
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=_scrsize   -Wl,-lc  -Wl,-lc    CMakeFiles/cmTC_fd32f.dir/CheckFunctionExists.c.o  -o cmTC_fd32f 
+/usr/bin/ld: CMakeFiles/cmTC_fd32f.dir/CheckFunctionExists.c.o: in function `main':
+CheckFunctionExists.c:(.text+0x14): undefined reference to `_scrsize'
+collect2: error: ld returned 1 exit status
+make[1]: *** [CMakeFiles/cmTC_fd32f.dir/build.make:87: cmTC_fd32f] Error 1
+make[1]: Leaving directory '/home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp'
+make: *** [Makefile:121: cmTC_fd32f/fast] Error 2
+
+
+
+Determining if the function GetConsoleScreenBufferInfo exists failed with the following output:
+Change Dir: /home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_79829/fast && /usr/bin/make -f CMakeFiles/cmTC_79829.dir/build.make CMakeFiles/cmTC_79829.dir/build
+make[1]: Entering directory '/home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_79829.dir/CheckFunctionExists.c.o
+/usr/bin/cc -D_FILE_OFFSET_BITS=64 -D_LARGEFILE64_SOURCE -D_LARGEFILE_SOURCE  -DCHECK_FUNCTION_EXISTS=GetConsoleScreenBufferInfo -fPIE   -o CMakeFiles/cmTC_79829.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.16/Modules/CheckFunctionExists.c
+Linking C executable cmTC_79829
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_79829.dir/link.txt --verbose=1
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=GetConsoleScreenBufferInfo   -Wl,-lc  -Wl,-lc    CMakeFiles/cmTC_79829.dir/CheckFunctionExists.c.o  -o cmTC_79829 
+/usr/bin/ld: CMakeFiles/cmTC_79829.dir/CheckFunctionExists.c.o: in function `main':
+CheckFunctionExists.c:(.text+0x14): undefined reference to `GetConsoleScreenBufferInfo'
+collect2: error: ld returned 1 exit status
+make[1]: *** [CMakeFiles/cmTC_79829.dir/build.make:87: cmTC_79829] Error 1
+make[1]: Leaving directory '/home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp'
+make: *** [Makefile:121: cmTC_79829/fast] Error 2
+
+
+
+Determining if the function setsysinfo exists failed with the following output:
+Change Dir: /home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_d1b2c/fast && /usr/bin/make -f CMakeFiles/cmTC_d1b2c.dir/build.make CMakeFiles/cmTC_d1b2c.dir/build
+make[1]: Entering directory '/home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_d1b2c.dir/CheckFunctionExists.c.o
+/usr/bin/cc -D_FILE_OFFSET_BITS=64 -D_LARGEFILE64_SOURCE -D_LARGEFILE_SOURCE  -DCHECK_FUNCTION_EXISTS=setsysinfo -fPIE   -o CMakeFiles/cmTC_d1b2c.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.16/Modules/CheckFunctionExists.c
+Linking C executable cmTC_d1b2c
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_d1b2c.dir/link.txt --verbose=1
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=setsysinfo   -Wl,-lc  -Wl,-lc    CMakeFiles/cmTC_d1b2c.dir/CheckFunctionExists.c.o  -o cmTC_d1b2c 
+/usr/bin/ld: CMakeFiles/cmTC_d1b2c.dir/CheckFunctionExists.c.o: in function `main':
+CheckFunctionExists.c:(.text+0x14): undefined reference to `setsysinfo'
+collect2: error: ld returned 1 exit status
+make[1]: *** [CMakeFiles/cmTC_d1b2c.dir/build.make:87: cmTC_d1b2c] Error 1
+make[1]: Leaving directory '/home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp'
+make: *** [Makefile:121: cmTC_d1b2c/fast] Error 2
+
+
+
+Determining if the function sigsetjmp exists failed with the following output:
+Change Dir: /home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_efc5a/fast && /usr/bin/make -f CMakeFiles/cmTC_efc5a.dir/build.make CMakeFiles/cmTC_efc5a.dir/build
+make[1]: Entering directory '/home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_efc5a.dir/CheckFunctionExists.c.o
+/usr/bin/cc -D_FILE_OFFSET_BITS=64 -D_LARGEFILE64_SOURCE -D_LARGEFILE_SOURCE  -DCHECK_FUNCTION_EXISTS=sigsetjmp -fPIE   -o CMakeFiles/cmTC_efc5a.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.16/Modules/CheckFunctionExists.c
+Linking C executable cmTC_efc5a
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_efc5a.dir/link.txt --verbose=1
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=sigsetjmp   -Wl,-lc  -Wl,-lc    CMakeFiles/cmTC_efc5a.dir/CheckFunctionExists.c.o  -o cmTC_efc5a 
+/usr/bin/ld: CMakeFiles/cmTC_efc5a.dir/CheckFunctionExists.c.o: in function `main':
+CheckFunctionExists.c:(.text+0x14): undefined reference to `sigsetjmp'
+collect2: error: ld returned 1 exit status
+make[1]: *** [CMakeFiles/cmTC_efc5a.dir/build.make:87: cmTC_efc5a] Error 1
+make[1]: Leaving directory '/home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp'
+make: *** [Makefile:121: cmTC_efc5a/fast] Error 2
+
+
+
+Determining size of _Quad failed with the following output:
+Change Dir: /home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_e70bd/fast && /usr/bin/make -f CMakeFiles/cmTC_e70bd.dir/build.make CMakeFiles/cmTC_e70bd.dir/build
+make[1]: Entering directory '/home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_e70bd.dir/H5_SIZEOF__QUAD.c.o
+/usr/bin/cc -D_FILE_OFFSET_BITS=64 -D_LARGEFILE64_SOURCE -D_LARGEFILE_SOURCE  -fPIE   -o CMakeFiles/cmTC_e70bd.dir/H5_SIZEOF__QUAD.c.o   -c /home/krist_lee/projects/qt_vtk_build/CMakeFiles/CheckTypeSize/H5_SIZEOF__QUAD.c
+/home/krist_lee/projects/qt_vtk_build/CMakeFiles/CheckTypeSize/H5_SIZEOF__QUAD.c:24:22: error: ‘_Quad’ undeclared here (not in a function)
+   24 | #define SIZE (sizeof(_Quad))
+      |                      ^~~~~
+/home/krist_lee/projects/qt_vtk_build/CMakeFiles/CheckTypeSize/H5_SIZEOF__QUAD.c:26:12: note: in expansion of macro ‘SIZE’
+   26 |   ('0' + ((SIZE / 10000)%10)),
+      |            ^~~~
+make[1]: *** [CMakeFiles/cmTC_e70bd.dir/build.make:66: CMakeFiles/cmTC_e70bd.dir/H5_SIZEOF__QUAD.c.o] Error 1
+make[1]: Leaving directory '/home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp'
+make: *** [Makefile:121: cmTC_e70bd/fast] Error 2
+
+
+/home/krist_lee/projects/qt_vtk_build/CMakeFiles/CheckTypeSize/H5_SIZEOF__QUAD.c:
+#include <sys/types.h>
+#include <stdint.h>
+#include <stddef.h>
+#include "stdbool.h"
+
+
+#undef KEY
+#if defined(__i386)
+# define KEY '_','_','i','3','8','6'
+#elif defined(__x86_64)
+# define KEY '_','_','x','8','6','_','6','4'
+#elif defined(__ppc__)
+# define KEY '_','_','p','p','c','_','_'
+#elif defined(__ppc64__)
+# define KEY '_','_','p','p','c','6','4','_','_'
+#elif defined(__aarch64__)
+# define KEY '_','_','a','a','r','c','h','6','4','_','_'
+#elif defined(__ARM_ARCH_7A__)
+# define KEY '_','_','A','R','M','_','A','R','C','H','_','7','A','_','_'
+#elif defined(__ARM_ARCH_7S__)
+# define KEY '_','_','A','R','M','_','A','R','C','H','_','7','S','_','_'
+#endif
+
+#define SIZE (sizeof(_Quad))
+static char info_size[] =  {'I', 'N', 'F', 'O', ':', 's','i','z','e','[',
+  ('0' + ((SIZE / 10000)%10)),
+  ('0' + ((SIZE / 1000)%10)),
+  ('0' + ((SIZE / 100)%10)),
+  ('0' + ((SIZE / 10)%10)),
+  ('0' +  (SIZE    % 10)),
+  ']',
+#ifdef KEY
+  ' ','k','e','y','[', KEY, ']',
+#endif
+  '\0'};
+
+#ifdef __CLASSIC_C__
+int main(argc, argv) int argc; char *argv[];
+#else
+int main(int argc, char *argv[])
+#endif
+{
+  int require = 0;
+  require += info_size[argc];
+  (void)argv;
+  return require;
+}
+
+
+Test H5_LDOUBLE_TO_LONG_SPECIAL Run failed with the following output and exit code:
+ Change Dir: /home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_19e3a/fast && /usr/bin/make -f CMakeFiles/cmTC_19e3a.dir/build.make CMakeFiles/cmTC_19e3a.dir/build
+make[1]: Entering directory '/home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_19e3a.dir/ConversionTests.c.o
+/usr/bin/cc   -DH5_LDOUBLE_TO_LONG_SPECIAL_TEST -fPIE   -o CMakeFiles/cmTC_19e3a.dir/ConversionTests.c.o   -c /home/krist_lee/projects/VTK/ThirdParty/hdf5/vtkhdf5/config/cmake/ConversionTests.c
+Linking C executable cmTC_19e3a
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_19e3a.dir/link.txt --verbose=1
+/usr/bin/cc   -DH5_LDOUBLE_TO_LONG_SPECIAL_TEST   -Wl,-lc  -Wl,-lc    CMakeFiles/cmTC_19e3a.dir/ConversionTests.c.o  -o cmTC_19e3a 
+make[1]: Leaving directory '/home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp'
+
+
+Test H5_LONG_TO_LDOUBLE_SPECIAL Run failed with the following output and exit code:
+ Change Dir: /home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_d9311/fast && /usr/bin/make -f CMakeFiles/cmTC_d9311.dir/build.make CMakeFiles/cmTC_d9311.dir/build
+make[1]: Entering directory '/home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_d9311.dir/ConversionTests.c.o
+/usr/bin/cc   -DH5_LONG_TO_LDOUBLE_SPECIAL_TEST -fPIE   -o CMakeFiles/cmTC_d9311.dir/ConversionTests.c.o   -c /home/krist_lee/projects/VTK/ThirdParty/hdf5/vtkhdf5/config/cmake/ConversionTests.c
+Linking C executable cmTC_d9311
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_d9311.dir/link.txt --verbose=1
+/usr/bin/cc   -DH5_LONG_TO_LDOUBLE_SPECIAL_TEST   -Wl,-lc  -Wl,-lc    CMakeFiles/cmTC_d9311.dir/ConversionTests.c.o  -o cmTC_d9311 
+make[1]: Leaving directory '/home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp'
+
+
+Test H5_DISABLE_SOME_LDOUBLE_CONV Run failed with the following output and exit code:
+ Change Dir: /home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_7e03a/fast && /usr/bin/make -f CMakeFiles/cmTC_7e03a.dir/build.make CMakeFiles/cmTC_7e03a.dir/build
+make[1]: Entering directory '/home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_7e03a.dir/ConversionTests.c.o
+/usr/bin/cc   -DH5_DISABLE_SOME_LDOUBLE_CONV_TEST -fPIE   -o CMakeFiles/cmTC_7e03a.dir/ConversionTests.c.o   -c /home/krist_lee/projects/VTK/ThirdParty/hdf5/vtkhdf5/config/cmake/ConversionTests.c
+Linking C executable cmTC_7e03a
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_7e03a.dir/link.txt --verbose=1
+/usr/bin/cc   -DH5_DISABLE_SOME_LDOUBLE_CONV_TEST   -Wl,-lc  -Wl,-lc    CMakeFiles/cmTC_7e03a.dir/ConversionTests.c.o  -o cmTC_7e03a 
+make[1]: Leaving directory '/home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp'
+
+
+Performing C SOURCE FILE Test have_flag_logical-op-parentheses failed with the following output:
+Change Dir: /home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_2590b/fast && /usr/bin/make -f CMakeFiles/cmTC_2590b.dir/build.make CMakeFiles/cmTC_2590b.dir/build
+make[1]: Entering directory '/home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_2590b.dir/src.c.o
+/usr/bin/cc   -Dhave_flag_logical-op-parentheses -fPIE   -Wno-logical-op-parentheses -o CMakeFiles/cmTC_2590b.dir/src.c.o   -c /home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp/src.c
+<command-line>: warning: ISO C99 requires whitespace after the macro name
+cc1: warning: unrecognized command line option '-Wno-logical-op-parentheses'
+Linking C executable cmTC_2590b
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_2590b.dir/link.txt --verbose=1
+/usr/bin/cc   -Dhave_flag_logical-op-parentheses   -Wl,-lc  -Wl,-lc    CMakeFiles/cmTC_2590b.dir/src.c.o  -o cmTC_2590b 
+make[1]: Leaving directory '/home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+int main(void) { return 0; }
+Performing C SOURCE FILE Test have_flag_shift-op-parentheses failed with the following output:
+Change Dir: /home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_ec8d5/fast && /usr/bin/make -f CMakeFiles/cmTC_ec8d5.dir/build.make CMakeFiles/cmTC_ec8d5.dir/build
+make[1]: Entering directory '/home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_ec8d5.dir/src.c.o
+/usr/bin/cc   -Dhave_flag_shift-op-parentheses -fPIE   -Wno-shift-op-parentheses -o CMakeFiles/cmTC_ec8d5.dir/src.c.o   -c /home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp/src.c
+<command-line>: warning: ISO C99 requires whitespace after the macro name
+cc1: warning: unrecognized command line option '-Wno-shift-op-parentheses'
+Linking C executable cmTC_ec8d5
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_ec8d5.dir/link.txt --verbose=1
+/usr/bin/cc   -Dhave_flag_shift-op-parentheses   -Wl,-lc  -Wl,-lc    CMakeFiles/cmTC_ec8d5.dir/src.c.o  -o cmTC_ec8d5 
+make[1]: Leaving directory '/home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+int main(void) { return 0; }
+Determining if the _filelengthi64 exist failed with the following output:
+Change Dir: /home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_5f9dd/fast && /usr/bin/make -f CMakeFiles/cmTC_5f9dd.dir/build.make CMakeFiles/cmTC_5f9dd.dir/build
+make[1]: Entering directory '/home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_5f9dd.dir/CheckSymbolExists.c.o
+/usr/bin/cc   -fPIE   -o CMakeFiles/cmTC_5f9dd.dir/CheckSymbolExists.c.o   -c /home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+/home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:2:10: fatal error: io.h: No such file or directory
+    2 | #include <io.h>
+      |          ^~~~~~
+compilation terminated.
+make[1]: *** [CMakeFiles/cmTC_5f9dd.dir/build.make:66: CMakeFiles/cmTC_5f9dd.dir/CheckSymbolExists.c.o] Error 1
+make[1]: Leaving directory '/home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp'
+make: *** [Makefile:121: cmTC_5f9dd/fast] Error 2
+
+
+File /home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <io.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef _filelengthi64
+  return ((int*)(&_filelengthi64))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the strlcat exist failed with the following output:
+Change Dir: /home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_3611f/fast && /usr/bin/make -f CMakeFiles/cmTC_3611f.dir/build.make CMakeFiles/cmTC_3611f.dir/build
+make[1]: Entering directory '/home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_3611f.dir/CheckSymbolExists.c.o
+/usr/bin/cc   -fPIE   -o CMakeFiles/cmTC_3611f.dir/CheckSymbolExists.c.o   -c /home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+/home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp/CheckSymbolExists.c: In function ‘main’:
+/home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:8:19: error: ‘strlcat’ undeclared (first use in this function); did you mean ‘strncat’?
+    8 |   return ((int*)(&strlcat))[argc];
+      |                   ^~~~~~~
+      |                   strncat
+/home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:8:19: note: each undeclared identifier is reported only once for each function it appears in
+make[1]: *** [CMakeFiles/cmTC_3611f.dir/build.make:66: CMakeFiles/cmTC_3611f.dir/CheckSymbolExists.c.o] Error 1
+make[1]: Leaving directory '/home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp'
+make: *** [Makefile:121: cmTC_3611f/fast] Error 2
+
+
+File /home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <string.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef strlcat
+  return ((int*)(&strlcat))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the st_blocksize exist failed with the following output:
+Change Dir: /home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_e80b1/fast && /usr/bin/make -f CMakeFiles/cmTC_e80b1.dir/build.make CMakeFiles/cmTC_e80b1.dir/build
+make[1]: Entering directory '/home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_e80b1.dir/CheckSymbolExists.c.o
+/usr/bin/cc   -fPIE   -o CMakeFiles/cmTC_e80b1.dir/CheckSymbolExists.c.o   -c /home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+/home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp/CheckSymbolExists.c: In function ‘main’:
+/home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:8:19: error: ‘st_blocksize’ undeclared (first use in this function)
+    8 |   return ((int*)(&st_blocksize))[argc];
+      |                   ^~~~~~~~~~~~
+/home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:8:19: note: each undeclared identifier is reported only once for each function it appears in
+make[1]: *** [CMakeFiles/cmTC_e80b1.dir/build.make:66: CMakeFiles/cmTC_e80b1.dir/CheckSymbolExists.c.o] Error 1
+make[1]: Leaving directory '/home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp'
+make: *** [Makefile:121: cmTC_e80b1/fast] Error 2
+
+
+File /home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <sys/stat.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef st_blocksize
+  return ((int*)(&st_blocksize))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining size of longlong failed with the following output:
+Change Dir: /home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_b18d4/fast && /usr/bin/make -f CMakeFiles/cmTC_b18d4.dir/build.make CMakeFiles/cmTC_b18d4.dir/build
+make[1]: Entering directory '/home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_b18d4.dir/HAVE_LONGLONG.c.o
+/usr/bin/cc   -fPIE   -o CMakeFiles/cmTC_b18d4.dir/HAVE_LONGLONG.c.o   -c /home/krist_lee/projects/qt_vtk_build/CMakeFiles/CheckTypeSize/HAVE_LONGLONG.c
+/home/krist_lee/projects/qt_vtk_build/CMakeFiles/CheckTypeSize/HAVE_LONGLONG.c:23:22: error: ‘longlong’ undeclared here (not in a function)
+   23 | #define SIZE (sizeof(longlong))
+      |                      ^~~~~~~~
+/home/krist_lee/projects/qt_vtk_build/CMakeFiles/CheckTypeSize/HAVE_LONGLONG.c:25:12: note: in expansion of macro ‘SIZE’
+   25 |   ('0' + ((SIZE / 10000)%10)),
+      |            ^~~~
+make[1]: *** [CMakeFiles/cmTC_b18d4.dir/build.make:66: CMakeFiles/cmTC_b18d4.dir/HAVE_LONGLONG.c.o] Error 1
+make[1]: Leaving directory '/home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp'
+make: *** [Makefile:121: cmTC_b18d4/fast] Error 2
+
+
+/home/krist_lee/projects/qt_vtk_build/CMakeFiles/CheckTypeSize/HAVE_LONGLONG.c:
+#include <sys/types.h>
+#include <stdint.h>
+#include <stddef.h>
+
+
+#undef KEY
+#if defined(__i386)
+# define KEY '_','_','i','3','8','6'
+#elif defined(__x86_64)
+# define KEY '_','_','x','8','6','_','6','4'
+#elif defined(__ppc__)
+# define KEY '_','_','p','p','c','_','_'
+#elif defined(__ppc64__)
+# define KEY '_','_','p','p','c','6','4','_','_'
+#elif defined(__aarch64__)
+# define KEY '_','_','a','a','r','c','h','6','4','_','_'
+#elif defined(__ARM_ARCH_7A__)
+# define KEY '_','_','A','R','M','_','A','R','C','H','_','7','A','_','_'
+#elif defined(__ARM_ARCH_7S__)
+# define KEY '_','_','A','R','M','_','A','R','C','H','_','7','S','_','_'
+#endif
+
+#define SIZE (sizeof(longlong))
+static char info_size[] =  {'I', 'N', 'F', 'O', ':', 's','i','z','e','[',
+  ('0' + ((SIZE / 10000)%10)),
+  ('0' + ((SIZE / 1000)%10)),
+  ('0' + ((SIZE / 100)%10)),
+  ('0' + ((SIZE / 10)%10)),
+  ('0' +  (SIZE    % 10)),
+  ']',
+#ifdef KEY
+  ' ','k','e','y','[', KEY, ']',
+#endif
+  '\0'};
+
+#ifdef __CLASSIC_C__
+int main(argc, argv) int argc; char *argv[];
+#else
+int main(int argc, char *argv[])
+#endif
+{
+  int require = 0;
+  require += info_size[argc];
+  (void)argv;
+  return require;
+}
+
+
+Determining size of uchar failed with the following output:
+Change Dir: /home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_39428/fast && /usr/bin/make -f CMakeFiles/cmTC_39428.dir/build.make CMakeFiles/cmTC_39428.dir/build
+make[1]: Entering directory '/home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_39428.dir/HAVE_UCHAR.c.o
+/usr/bin/cc   -fPIE   -o CMakeFiles/cmTC_39428.dir/HAVE_UCHAR.c.o   -c /home/krist_lee/projects/qt_vtk_build/CMakeFiles/CheckTypeSize/HAVE_UCHAR.c
+/home/krist_lee/projects/qt_vtk_build/CMakeFiles/CheckTypeSize/HAVE_UCHAR.c:23:22: error: ‘uchar’ undeclared here (not in a function); did you mean ‘u_char’?
+   23 | #define SIZE (sizeof(uchar))
+      |                      ^~~~~
+/home/krist_lee/projects/qt_vtk_build/CMakeFiles/CheckTypeSize/HAVE_UCHAR.c:25:12: note: in expansion of macro ‘SIZE’
+   25 |   ('0' + ((SIZE / 10000)%10)),
+      |            ^~~~
+make[1]: *** [CMakeFiles/cmTC_39428.dir/build.make:66: CMakeFiles/cmTC_39428.dir/HAVE_UCHAR.c.o] Error 1
+make[1]: Leaving directory '/home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp'
+make: *** [Makefile:121: cmTC_39428/fast] Error 2
+
+
+/home/krist_lee/projects/qt_vtk_build/CMakeFiles/CheckTypeSize/HAVE_UCHAR.c:
+#include <sys/types.h>
+#include <stdint.h>
+#include <stddef.h>
+
+
+#undef KEY
+#if defined(__i386)
+# define KEY '_','_','i','3','8','6'
+#elif defined(__x86_64)
+# define KEY '_','_','x','8','6','_','6','4'
+#elif defined(__ppc__)
+# define KEY '_','_','p','p','c','_','_'
+#elif defined(__ppc64__)
+# define KEY '_','_','p','p','c','6','4','_','_'
+#elif defined(__aarch64__)
+# define KEY '_','_','a','a','r','c','h','6','4','_','_'
+#elif defined(__ARM_ARCH_7A__)
+# define KEY '_','_','A','R','M','_','A','R','C','H','_','7','A','_','_'
+#elif defined(__ARM_ARCH_7S__)
+# define KEY '_','_','A','R','M','_','A','R','C','H','_','7','S','_','_'
+#endif
+
+#define SIZE (sizeof(uchar))
+static char info_size[] =  {'I', 'N', 'F', 'O', ':', 's','i','z','e','[',
+  ('0' + ((SIZE / 10000)%10)),
+  ('0' + ((SIZE / 1000)%10)),
+  ('0' + ((SIZE / 100)%10)),
+  ('0' + ((SIZE / 10)%10)),
+  ('0' +  (SIZE    % 10)),
+  ']',
+#ifdef KEY
+  ' ','k','e','y','[', KEY, ']',
+#endif
+  '\0'};
+
+#ifdef __CLASSIC_C__
+int main(argc, argv) int argc; char *argv[];
+#else
+int main(int argc, char *argv[])
+#endif
+{
+  int require = 0;
+  require += info_size[argc];
+  (void)argv;
+  return require;
+}
+
+
+Determining size of schar failed with the following output:
+Change Dir: /home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_a49e7/fast && /usr/bin/make -f CMakeFiles/cmTC_a49e7.dir/build.make CMakeFiles/cmTC_a49e7.dir/build
+make[1]: Entering directory '/home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_a49e7.dir/HAVE_SCHAR.c.o
+/usr/bin/cc   -fPIE   -o CMakeFiles/cmTC_a49e7.dir/HAVE_SCHAR.c.o   -c /home/krist_lee/projects/qt_vtk_build/CMakeFiles/CheckTypeSize/HAVE_SCHAR.c
+/home/krist_lee/projects/qt_vtk_build/CMakeFiles/CheckTypeSize/HAVE_SCHAR.c:23:22: error: ‘schar’ undeclared here (not in a function); did you mean ‘char’?
+   23 | #define SIZE (sizeof(schar))
+      |                      ^~~~~
+/home/krist_lee/projects/qt_vtk_build/CMakeFiles/CheckTypeSize/HAVE_SCHAR.c:25:12: note: in expansion of macro ‘SIZE’
+   25 |   ('0' + ((SIZE / 10000)%10)),
+      |            ^~~~
+make[1]: *** [CMakeFiles/cmTC_a49e7.dir/build.make:66: CMakeFiles/cmTC_a49e7.dir/HAVE_SCHAR.c.o] Error 1
+make[1]: Leaving directory '/home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp'
+make: *** [Makefile:121: cmTC_a49e7/fast] Error 2
+
+
+/home/krist_lee/projects/qt_vtk_build/CMakeFiles/CheckTypeSize/HAVE_SCHAR.c:
+#include <sys/types.h>
+#include <stdint.h>
+#include <stddef.h>
+
+
+#undef KEY
+#if defined(__i386)
+# define KEY '_','_','i','3','8','6'
+#elif defined(__x86_64)
+# define KEY '_','_','x','8','6','_','6','4'
+#elif defined(__ppc__)
+# define KEY '_','_','p','p','c','_','_'
+#elif defined(__ppc64__)
+# define KEY '_','_','p','p','c','6','4','_','_'
+#elif defined(__aarch64__)
+# define KEY '_','_','a','a','r','c','h','6','4','_','_'
+#elif defined(__ARM_ARCH_7A__)
+# define KEY '_','_','A','R','M','_','A','R','C','H','_','7','A','_','_'
+#elif defined(__ARM_ARCH_7S__)
+# define KEY '_','_','A','R','M','_','A','R','C','H','_','7','S','_','_'
+#endif
+
+#define SIZE (sizeof(schar))
+static char info_size[] =  {'I', 'N', 'F', 'O', ':', 's','i','z','e','[',
+  ('0' + ((SIZE / 10000)%10)),
+  ('0' + ((SIZE / 1000)%10)),
+  ('0' + ((SIZE / 100)%10)),
+  ('0' + ((SIZE / 10)%10)),
+  ('0' +  (SIZE    % 10)),
+  ']',
+#ifdef KEY
+  ' ','k','e','y','[', KEY, ']',
+#endif
+  '\0'};
+
+#ifdef __CLASSIC_C__
+int main(argc, argv) int argc; char *argv[];
+#else
+int main(int argc, char *argv[])
+#endif
+{
+  int require = 0;
+  require += info_size[argc];
+  (void)argv;
+  return require;
+}
+
+
+Determining if the function shl_load exists in the dld; failed with the following output:
+Change Dir: /home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_c5be3/fast && /usr/bin/make -f CMakeFiles/cmTC_c5be3.dir/build.make CMakeFiles/cmTC_c5be3.dir/build
+make[1]: Entering directory '/home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_c5be3.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=shl_load -fPIE   -o CMakeFiles/cmTC_c5be3.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.16/Modules/CheckFunctionExists.c
+Linking C executable cmTC_c5be3
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_c5be3.dir/link.txt --verbose=1
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=shl_load   -Wl,-lc  -Wl,-lc    CMakeFiles/cmTC_c5be3.dir/CheckFunctionExists.c.o  -o cmTC_c5be3  -ldld 
+/usr/bin/ld: cannot find -ldld
+collect2: error: ld returned 1 exit status
+make[1]: *** [CMakeFiles/cmTC_c5be3.dir/build.make:87: cmTC_c5be3] Error 1
+make[1]: Leaving directory '/home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp'
+make: *** [Makefile:121: cmTC_c5be3/fast] Error 2
+
+
+
+Determining if files sys/types.h;dlfcn.h;fcntl.h;malloc.h;inttypes.h;limits.h;stdint.h;stdio.h;stdlib.h;string.h;sys/stat.h;time.h;unistd.h;signal.h;errno.h;ansidecl.h exist failed with the following output:
+Change Dir: /home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_8307c/fast && /usr/bin/make -f CMakeFiles/cmTC_8307c.dir/build.make CMakeFiles/cmTC_8307c.dir/build
+make[1]: Entering directory '/home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_8307c.dir/HAVE_ANSIDECL_H.c.o
+/usr/bin/cc -D_GNU_SOURCE  -fPIE   -o CMakeFiles/cmTC_8307c.dir/HAVE_ANSIDECL_H.c.o   -c /home/krist_lee/projects/qt_vtk_build/CMakeFiles/CheckIncludeFiles/HAVE_ANSIDECL_H.c
+/home/krist_lee/projects/qt_vtk_build/CMakeFiles/CheckIncludeFiles/HAVE_ANSIDECL_H.c:17:10: fatal error: ansidecl.h: No such file or directory
+   17 | #include <ansidecl.h>
+      |          ^~~~~~~~~~~~
+compilation terminated.
+make[1]: *** [CMakeFiles/cmTC_8307c.dir/build.make:66: CMakeFiles/cmTC_8307c.dir/HAVE_ANSIDECL_H.c.o] Error 1
+make[1]: Leaving directory '/home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp'
+make: *** [Makefile:121: cmTC_8307c/fast] Error 2
+
+
+Source:
+/* */
+#include <sys/types.h>
+#include <dlfcn.h>
+#include <fcntl.h>
+#include <malloc.h>
+#include <inttypes.h>
+#include <limits.h>
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <sys/stat.h>
+#include <time.h>
+#include <unistd.h>
+#include <signal.h>
+#include <errno.h>
+#include <ansidecl.h>
+
+
+int main(void){return 0;}
+
+Determining if files sys/types.h;dlfcn.h;fcntl.h;malloc.h;inttypes.h;limits.h;stdint.h;stdio.h;stdlib.h;string.h;sys/stat.h;time.h;unistd.h;signal.h;errno.h;ctype.h;dl.h exist failed with the following output:
+Change Dir: /home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_2bda3/fast && /usr/bin/make -f CMakeFiles/cmTC_2bda3.dir/build.make CMakeFiles/cmTC_2bda3.dir/build
+make[1]: Entering directory '/home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_2bda3.dir/HAVE_DL_H.c.o
+/usr/bin/cc -D_GNU_SOURCE  -fPIE   -o CMakeFiles/cmTC_2bda3.dir/HAVE_DL_H.c.o   -c /home/krist_lee/projects/qt_vtk_build/CMakeFiles/CheckIncludeFiles/HAVE_DL_H.c
+/home/krist_lee/projects/qt_vtk_build/CMakeFiles/CheckIncludeFiles/HAVE_DL_H.c:18:10: fatal error: dl.h: No such file or directory
+   18 | #include <dl.h>
+      |          ^~~~~~
+compilation terminated.
+make[1]: *** [CMakeFiles/cmTC_2bda3.dir/build.make:66: CMakeFiles/cmTC_2bda3.dir/HAVE_DL_H.c.o] Error 1
+make[1]: Leaving directory '/home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp'
+make: *** [Makefile:121: cmTC_2bda3/fast] Error 2
+
+
+Source:
+/* */
+#include <sys/types.h>
+#include <dlfcn.h>
+#include <fcntl.h>
+#include <malloc.h>
+#include <inttypes.h>
+#include <limits.h>
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <sys/stat.h>
+#include <time.h>
+#include <unistd.h>
+#include <signal.h>
+#include <errno.h>
+#include <ctype.h>
+#include <dl.h>
+
+
+int main(void){return 0;}
+
+Determining if the _stat exist failed with the following output:
+Change Dir: /home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_da743/fast && /usr/bin/make -f CMakeFiles/cmTC_da743.dir/build.make CMakeFiles/cmTC_da743.dir/build
+make[1]: Entering directory '/home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_da743.dir/CheckSymbolExists.c.o
+/usr/bin/cc -D_GNU_SOURCE  -fPIE   -o CMakeFiles/cmTC_da743.dir/CheckSymbolExists.c.o   -c /home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+/home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp/CheckSymbolExists.c: In function ‘main’:
+/home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:26:19: error: ‘_stat’ undeclared (first use in this function); did you mean ‘lstat’?
+   26 |   return ((int*)(&_stat))[argc];
+      |                   ^~~~~
+      |                   lstat
+/home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:26:19: note: each undeclared identifier is reported only once for each function it appears in
+make[1]: *** [CMakeFiles/cmTC_da743.dir/build.make:66: CMakeFiles/cmTC_da743.dir/CheckSymbolExists.c.o] Error 1
+make[1]: Leaving directory '/home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp'
+make: *** [Makefile:121: cmTC_da743/fast] Error 2
+
+
+File /home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <sys/types.h>
+#include <dlfcn.h>
+#include <fcntl.h>
+#include <malloc.h>
+#include <inttypes.h>
+#include <limits.h>
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <sys/stat.h>
+#include <time.h>
+#include <unistd.h>
+#include <signal.h>
+#include <errno.h>
+#include <ctype.h>
+#include <float.h>
+#include <math.h>
+#include <pthread.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef _stat
+  return ((int*)(&_stat))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the HDF5 Multi_Dataset exists failed with the following output:
+Change Dir: /home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_1ed43/fast && /usr/bin/make -f CMakeFiles/cmTC_1ed43.dir/build.make CMakeFiles/cmTC_1ed43.dir/build
+make[1]: Entering directory '/home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_1ed43.dir/test_HDF.c.o
+/usr/bin/cc   -fPIE   -std=gnu99 -o CMakeFiles/cmTC_1ed43.dir/test_HDF.c.o   -c /home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp/test_HDF.c
+/home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp/test_HDF.c:2:11: fatal error: hdf5.h: No such file or directory
+    2 |  #include "hdf5.h"
+      |           ^~~~~~~~
+compilation terminated.
+make[1]: *** [CMakeFiles/cmTC_1ed43.dir/build.make:66: CMakeFiles/cmTC_1ed43.dir/test_HDF.c.o] Error 1
+make[1]: Leaving directory '/home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp'
+make: *** [Makefile:121: cmTC_1ed43/fast] Error 2
+
+
+
+Determining if the HDF5 Collective_metadata exists failed with the following output:
+Change Dir: /home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_c75ae/fast && /usr/bin/make -f CMakeFiles/cmTC_c75ae.dir/build.make CMakeFiles/cmTC_c75ae.dir/build
+make[1]: Entering directory '/home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_c75ae.dir/test_HDF.c.o
+/usr/bin/cc   -fPIE   -std=gnu99 -o CMakeFiles/cmTC_c75ae.dir/test_HDF.c.o   -c /home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp/test_HDF.c
+/home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp/test_HDF.c:2:11: fatal error: hdf5.h: No such file or directory
+    2 |  #include "hdf5.h"
+      |           ^~~~~~~~
+compilation terminated.
+make[1]: *** [CMakeFiles/cmTC_c75ae.dir/build.make:66: CMakeFiles/cmTC_c75ae.dir/test_HDF.c.o] Error 1
+make[1]: Leaving directory '/home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp'
+make: *** [Makefile:121: cmTC_c75ae/fast] Error 2
+
+
+
+Determining if the HDF5 H5Pset_file_space_strategy exists failed with the following output:
+Change Dir: /home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_1af51/fast && /usr/bin/make -f CMakeFiles/cmTC_1af51.dir/build.make CMakeFiles/cmTC_1af51.dir/build
+make[1]: Entering directory '/home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_1af51.dir/test_HDF.c.o
+/usr/bin/cc   -fPIE   -std=gnu99 -o CMakeFiles/cmTC_1af51.dir/test_HDF.c.o   -c /home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp/test_HDF.c
+/home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp/test_HDF.c:2:11: fatal error: hdf5.h: No such file or directory
+    2 |  #include "hdf5.h"
+      |           ^~~~~~~~
+compilation terminated.
+make[1]: *** [CMakeFiles/cmTC_1af51.dir/build.make:66: CMakeFiles/cmTC_1af51.dir/test_HDF.c.o] Error 1
+make[1]: Leaving directory '/home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp'
+make: *** [Makefile:121: cmTC_1af51/fast] Error 2
+
+
+
+Performing C SOURCE FILE Test CHECK_HAVE_STAT64_STRUCT failed with the following output:
+Change Dir: /home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_377df/fast && /usr/bin/make -f CMakeFiles/cmTC_377df.dir/build.make CMakeFiles/cmTC_377df.dir/build
+make[1]: Entering directory '/home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_377df.dir/src.c.o
+/usr/bin/cc   -DCHECK_HAVE_STAT64_STRUCT -fPIE   -std=gnu99 -o CMakeFiles/cmTC_377df.dir/src.c.o   -c /home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp/src.c
+/home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp/src.c: In function ‘main’:
+/home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp/src.c:6:36: error: dereferencing pointer to incomplete type ‘struct stat64’
+    6 |   (void)sizeof(((struct stat64 *)0)->st_atime);
+      |                                    ^~
+make[1]: *** [CMakeFiles/cmTC_377df.dir/build.make:66: CMakeFiles/cmTC_377df.dir/src.c.o] Error 1
+make[1]: Leaving directory '/home/krist_lee/projects/qt_vtk_build/CMakeFiles/CMakeTmp'
+make: *** [Makefile:121: cmTC_377df/fast] Error 2
+
+
+Source file was:
+
+#include <sys/stat.h>
+
+int main()
+{
+  (void)sizeof(((struct stat64 *)0)->st_atime);
+  return 0;
+}
+

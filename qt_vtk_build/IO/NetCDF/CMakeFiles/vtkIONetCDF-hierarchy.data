@@ -1,0 +1,8 @@
+/home/krist_lee/projects/VTK/IO/NetCDF/vtkMPASReader.h;vtkIONetCDF
+/home/krist_lee/projects/VTK/IO/NetCDF/vtkNetCDFCAMReader.h;vtkIONetCDF
+/home/krist_lee/projects/VTK/IO/NetCDF/vtkNetCDFCFReader.h;vtkIONetCDF
+/home/krist_lee/projects/VTK/IO/NetCDF/vtkNetCDFPOPReader.h;vtkIONetCDF
+/home/krist_lee/projects/VTK/IO/NetCDF/vtkNetCDFReader.h;vtkIONetCDF
+/home/krist_lee/projects/VTK/IO/NetCDF/vtkSLACParticleReader.h;vtkIONetCDF
+/home/krist_lee/projects/VTK/IO/NetCDF/vtkSLACReader.h;vtkIONetCDF
+/home/krist_lee/projects/qt_vtk_build/IO/NetCDF/vtkIONetCDFModule.h;vtkIONetCDF

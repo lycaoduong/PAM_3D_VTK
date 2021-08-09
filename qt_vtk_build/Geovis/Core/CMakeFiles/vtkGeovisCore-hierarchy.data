@@ -1,0 +1,5 @@
+/home/krist_lee/projects/VTK/Geovis/Core/vtkCompassRepresentation.h;vtkGeovisCore
+/home/krist_lee/projects/VTK/Geovis/Core/vtkCompassWidget.h;vtkGeovisCore
+/home/krist_lee/projects/VTK/Geovis/Core/vtkGeoProjection.h;vtkGeovisCore
+/home/krist_lee/projects/VTK/Geovis/Core/vtkGeoTransform.h;vtkGeovisCore
+/home/krist_lee/projects/qt_vtk_build/Geovis/Core/vtkGeovisCoreModule.h;vtkGeovisCore

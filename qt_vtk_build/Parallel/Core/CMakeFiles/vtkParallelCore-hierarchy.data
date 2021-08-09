@@ -1,0 +1,16 @@
+/home/krist_lee/projects/VTK/Parallel/Core/vtkCommunicator.h;vtkParallelCore
+/home/krist_lee/projects/VTK/Parallel/Core/vtkDummyCommunicator.h;vtkParallelCore
+/home/krist_lee/projects/VTK/Parallel/Core/vtkDummyController.h;vtkParallelCore
+/home/krist_lee/projects/VTK/Parallel/Core/vtkFieldDataSerializer.h;vtkParallelCore
+/home/krist_lee/projects/VTK/Parallel/Core/vtkMultiProcessController.h;vtkParallelCore
+/home/krist_lee/projects/VTK/Parallel/Core/vtkMultiProcessStream.h;vtkParallelCore
+/home/krist_lee/projects/VTK/Parallel/Core/vtkPDirectory.h;vtkParallelCore
+/home/krist_lee/projects/VTK/Parallel/Core/vtkProcess.h;vtkParallelCore
+/home/krist_lee/projects/VTK/Parallel/Core/vtkProcessGroup.h;vtkParallelCore
+/home/krist_lee/projects/VTK/Parallel/Core/vtkPSystemTools.h;vtkParallelCore
+/home/krist_lee/projects/VTK/Parallel/Core/vtkSocketCommunicator.h;vtkParallelCore
+/home/krist_lee/projects/VTK/Parallel/Core/vtkSocketController.h;vtkParallelCore
+/home/krist_lee/projects/VTK/Parallel/Core/vtkSubCommunicator.h;vtkParallelCore
+/home/krist_lee/projects/VTK/Parallel/Core/vtkSubGroup.h;vtkParallelCore
+/home/krist_lee/projects/VTK/Parallel/Core/vtkThreadedTaskQueue.h;vtkParallelCore
+/home/krist_lee/projects/qt_vtk_build/Parallel/Core/vtkParallelCoreModule.h;vtkParallelCore

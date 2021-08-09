@@ -1,0 +1,14 @@
+/home/krist_lee/projects/qt_vtk_build/Domains/Chemistry/vtkChemistryConfigure.h;vtkDomainsChemistry
+/home/krist_lee/projects/VTK/Domains/Chemistry/vtkBlueObeliskData.h;vtkDomainsChemistry
+/home/krist_lee/projects/VTK/Domains/Chemistry/vtkBlueObeliskDataParser.h;vtkDomainsChemistry
+/home/krist_lee/projects/VTK/Domains/Chemistry/vtkMoleculeMapper.h;vtkDomainsChemistry
+/home/krist_lee/projects/VTK/Domains/Chemistry/vtkMoleculeToAtomBallFilter.h;vtkDomainsChemistry
+/home/krist_lee/projects/VTK/Domains/Chemistry/vtkMoleculeToBondStickFilter.h;vtkDomainsChemistry
+/home/krist_lee/projects/VTK/Domains/Chemistry/vtkMoleculeToLinesFilter.h;vtkDomainsChemistry
+/home/krist_lee/projects/VTK/Domains/Chemistry/vtkMoleculeToPolyDataFilter.h;vtkDomainsChemistry
+/home/krist_lee/projects/VTK/Domains/Chemistry/vtkPeriodicTable.h;vtkDomainsChemistry
+/home/krist_lee/projects/VTK/Domains/Chemistry/vtkPointSetToMoleculeFilter.h;vtkDomainsChemistry
+/home/krist_lee/projects/VTK/Domains/Chemistry/vtkProgrammableElectronicData.h;vtkDomainsChemistry
+/home/krist_lee/projects/VTK/Domains/Chemistry/vtkProteinRibbonFilter.h;vtkDomainsChemistry
+/home/krist_lee/projects/VTK/Domains/Chemistry/vtkSimpleBondPerceiver.h;vtkDomainsChemistry
+/home/krist_lee/projects/qt_vtk_build/Domains/Chemistry/vtkDomainsChemistryModule.h;vtkDomainsChemistry

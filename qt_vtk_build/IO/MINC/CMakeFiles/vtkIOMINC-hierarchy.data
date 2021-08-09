@@ -1,0 +1,11 @@
+/home/krist_lee/projects/VTK/IO/MINC/vtkMINC.h;vtkIOMINC
+/home/krist_lee/projects/VTK/IO/MINC/vtkMINCImageAttributes.h;vtkIOMINC
+/home/krist_lee/projects/VTK/IO/MINC/vtkMINCImageReader.h;vtkIOMINC
+/home/krist_lee/projects/VTK/IO/MINC/vtkMINCImageWriter.h;vtkIOMINC
+/home/krist_lee/projects/VTK/IO/MINC/vtkMNIObjectReader.h;vtkIOMINC
+/home/krist_lee/projects/VTK/IO/MINC/vtkMNIObjectWriter.h;vtkIOMINC
+/home/krist_lee/projects/VTK/IO/MINC/vtkMNITagPointReader.h;vtkIOMINC
+/home/krist_lee/projects/VTK/IO/MINC/vtkMNITagPointWriter.h;vtkIOMINC
+/home/krist_lee/projects/VTK/IO/MINC/vtkMNITransformReader.h;vtkIOMINC
+/home/krist_lee/projects/VTK/IO/MINC/vtkMNITransformWriter.h;vtkIOMINC
+/home/krist_lee/projects/qt_vtk_build/IO/MINC/vtkIOMINCModule.h;vtkIOMINC

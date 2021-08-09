@@ -1,0 +1,322 @@
+{
+	"BUILD_DIR" : "/home/krist_lee/projects/qt_vtk_build/GUISupport/Qt/GUISupportQt_autogen",
+	"CMAKE_BINARY_DIR" : "/home/krist_lee/projects/qt_vtk_build",
+	"CMAKE_CURRENT_BINARY_DIR" : "/home/krist_lee/projects/qt_vtk_build/GUISupport/Qt",
+	"CMAKE_CURRENT_SOURCE_DIR" : "/home/krist_lee/projects/VTK/GUISupport/Qt",
+	"CMAKE_EXECUTABLE" : "/usr/bin/cmake",
+	"CMAKE_SOURCE_DIR" : "/home/krist_lee/projects/VTK",
+	"HEADERS" : 
+	[
+		[
+			"/home/krist_lee/projects/VTK/GUISupport/Qt/QFilterTreeProxyModel.h",
+			"Mu",
+			"EWIEGA46WW/moc_QFilterTreeProxyModel.cpp"
+		],
+		[
+			"/home/krist_lee/projects/VTK/GUISupport/Qt/QVTKApplication.h",
+			"Mu",
+			"EWIEGA46WW/moc_QVTKApplication.cpp"
+		],
+		[
+			"/home/krist_lee/projects/VTK/GUISupport/Qt/QVTKInteractor.h",
+			"Mu",
+			"EWIEGA46WW/moc_QVTKInteractor.cpp"
+		],
+		[
+			"/home/krist_lee/projects/VTK/GUISupport/Qt/QVTKInteractorAdapter.h",
+			"Mu",
+			"EWIEGA46WW/moc_QVTKInteractorAdapter.cpp"
+		],
+		[
+			"/home/krist_lee/projects/VTK/GUISupport/Qt/QVTKInteractorInternal.h",
+			"Mu",
+			"EWIEGA46WW/moc_QVTKInteractorInternal.cpp"
+		],
+		[
+			"/home/krist_lee/projects/VTK/GUISupport/Qt/QVTKOpenGLNativeWidget.h",
+			"Mu",
+			"EWIEGA46WW/moc_QVTKOpenGLNativeWidget.cpp"
+		],
+		[
+			"/home/krist_lee/projects/VTK/GUISupport/Qt/QVTKOpenGLStereoWidget.h",
+			"Mu",
+			"EWIEGA46WW/moc_QVTKOpenGLStereoWidget.cpp"
+		],
+		[
+			"/home/krist_lee/projects/VTK/GUISupport/Qt/QVTKOpenGLWidget.h",
+			"Mu",
+			"EWIEGA46WW/moc_QVTKOpenGLWidget.cpp"
+		],
+		[
+			"/home/krist_lee/projects/VTK/GUISupport/Qt/QVTKOpenGLWindow.h",
+			"Mu",
+			"EWIEGA46WW/moc_QVTKOpenGLWindow.cpp"
+		],
+		[
+			"/home/krist_lee/projects/VTK/GUISupport/Qt/QVTKRenderWidget.h",
+			"Mu",
+			"EWIEGA46WW/moc_QVTKRenderWidget.cpp"
+		],
+		[
+			"/home/krist_lee/projects/VTK/GUISupport/Qt/QVTKRenderWindowAdapter.h",
+			"Mu",
+			"EWIEGA46WW/moc_QVTKRenderWindowAdapter.cpp"
+		],
+		[
+			"/home/krist_lee/projects/VTK/GUISupport/Qt/QVTKWin32Header.h",
+			"Mu",
+			"EWIEGA46WW/moc_QVTKWin32Header.cpp"
+		],
+		[
+			"/home/krist_lee/projects/VTK/GUISupport/Qt/vtkEventQtSlotConnect.h",
+			"Mu",
+			"EWIEGA46WW/moc_vtkEventQtSlotConnect.cpp"
+		],
+		[
+			"/home/krist_lee/projects/VTK/GUISupport/Qt/vtkQWidgetRepresentation.h",
+			"Mu",
+			"EWIEGA46WW/moc_vtkQWidgetRepresentation.cpp"
+		],
+		[
+			"/home/krist_lee/projects/VTK/GUISupport/Qt/vtkQWidgetTexture.h",
+			"Mu",
+			"EWIEGA46WW/moc_vtkQWidgetTexture.cpp"
+		],
+		[
+			"/home/krist_lee/projects/VTK/GUISupport/Qt/vtkQWidgetWidget.h",
+			"Mu",
+			"EWIEGA46WW/moc_vtkQWidgetWidget.cpp"
+		],
+		[
+			"/home/krist_lee/projects/VTK/GUISupport/Qt/vtkQtAbstractModelAdapter.h",
+			"Mu",
+			"EWIEGA46WW/moc_vtkQtAbstractModelAdapter.cpp"
+		],
+		[
+			"/home/krist_lee/projects/VTK/GUISupport/Qt/vtkQtAnnotationLayersModelAdapter.h",
+			"Mu",
+			"EWIEGA46WW/moc_vtkQtAnnotationLayersModelAdapter.cpp"
+		],
+		[
+			"/home/krist_lee/projects/VTK/GUISupport/Qt/vtkQtConnection.h",
+			"Mu",
+			"EWIEGA46WW/moc_vtkQtConnection.cpp"
+		],
+		[
+			"/home/krist_lee/projects/VTK/GUISupport/Qt/vtkQtDebugLeaksModel.h",
+			"Mu",
+			"EWIEGA46WW/moc_vtkQtDebugLeaksModel.cpp"
+		],
+		[
+			"/home/krist_lee/projects/VTK/GUISupport/Qt/vtkQtDebugLeaksView.h",
+			"Mu",
+			"EWIEGA46WW/moc_vtkQtDebugLeaksView.cpp"
+		],
+		[
+			"/home/krist_lee/projects/VTK/GUISupport/Qt/vtkQtTableModelAdapter.h",
+			"Mu",
+			"EWIEGA46WW/moc_vtkQtTableModelAdapter.cpp"
+		],
+		[
+			"/home/krist_lee/projects/VTK/GUISupport/Qt/vtkQtTreeModelAdapter.h",
+			"Mu",
+			"EWIEGA46WW/moc_vtkQtTreeModelAdapter.cpp"
+		],
+		[
+			"/home/krist_lee/projects/qt_vtk_build/GUISupport/Qt/vtkGUISupportQtModule.h",
+			"Mu",
+			"EJRQKI7XPS/moc_vtkGUISupportQtModule.cpp"
+		]
+	],
+	"HEADER_EXTENSIONS" : [ "h", "hh", "h++", "hm", "hpp", "hxx", "in", "txx" ],
+	"INCLUDE_DIR" : "/home/krist_lee/projects/qt_vtk_build/GUISupport/Qt/GUISupportQt_autogen/include",
+	"MOC_COMPILATION_FILE" : "/home/krist_lee/projects/qt_vtk_build/GUISupport/Qt/GUISupportQt_autogen/mocs_compilation.cpp",
+	"MOC_DEFINITIONS" : 
+	[
+		"GUISupportQt_EXPORTS",
+		"QT_CORE_LIB",
+		"QT_GUI_LIB",
+		"QT_NO_DEBUG",
+		"QT_NO_KEYWORDS",
+		"QT_OPENGL_LIB",
+		"QT_WIDGETS_LIB",
+		"VTK_IN_VTK",
+		"VTK_SMP_DEFAULT_IMPLEMENTATION_OPENMP=0",
+		"VTK_SMP_DEFAULT_IMPLEMENTATION_SEQUENTIAL=1",
+		"VTK_SMP_DEFAULT_IMPLEMENTATION_STDTHREAD=0",
+		"VTK_SMP_DEFAULT_IMPLEMENTATION_TBB=0",
+		"VTK_SMP_ENABLE_OPENMP=0",
+		"VTK_SMP_ENABLE_SEQUENTIAL=1",
+		"VTK_SMP_ENABLE_STDTHREAD=1",
+		"VTK_SMP_ENABLE_TBB=0",
+		"kiss_fft_scalar=double",
+		"vtkRenderingCore_AUTOINIT_INCLUDE=\"/home/krist_lee/projects/qt_vtk_build/CMakeFiles/vtkModuleAutoInit_be7301261a49b13d6a9b1d9e110eacd8.h\""
+	],
+	"MOC_DEPEND_FILTERS" : 
+	[
+		[
+			"Q_PLUGIN_METADATA",
+			"[\n][ \t]*Q_PLUGIN_METADATA[ \t]*\\([^\\)]*FILE[ \t]*\"([^\"]+)\""
+		]
+	],
+	"MOC_INCLUDES" : 
+	[
+		"/home/krist_lee/projects/qt_vtk_build/GUISupport/Qt",
+		"/home/krist_lee/projects/VTK/GUISupport/Qt",
+		"/home/krist_lee/projects/qt_vtk_build/Common/Core",
+		"/home/krist_lee/projects/VTK/Common/Core",
+		"/home/krist_lee/projects/qt_vtk_build/Rendering/Core",
+		"/home/krist_lee/projects/VTK/Rendering/Core",
+		"/home/krist_lee/projects/qt_vtk_build/Common/DataModel",
+		"/home/krist_lee/projects/VTK/Common/DataModel",
+		"/home/krist_lee/projects/qt_vtk_build/Common/Math",
+		"/home/krist_lee/projects/VTK/Common/Math",
+		"/home/krist_lee/projects/qt_vtk_build/ThirdParty/kissfft/vtkkissfft",
+		"/home/krist_lee/projects/VTK/ThirdParty/kissfft/vtkkissfft",
+		"/home/krist_lee/projects/qt_vtk_build/Common/Transforms",
+		"/home/krist_lee/projects/VTK/Common/Transforms",
+		"/home/krist_lee/projects/qt_vtk_build/Common/ExecutionModel",
+		"/home/krist_lee/projects/VTK/Common/ExecutionModel",
+		"/home/krist_lee/projects/qt_vtk_build/Filters/Core",
+		"/home/krist_lee/projects/VTK/Filters/Core",
+		"/home/krist_lee/projects/qt_vtk_build/Common/Misc",
+		"/home/krist_lee/projects/VTK/Common/Misc",
+		"/home/krist_lee/projects/qt_vtk_build/Rendering/OpenGL2",
+		"/home/krist_lee/projects/VTK/Rendering/OpenGL2",
+		"/home/krist_lee/projects/qt_vtk_build/Filters/General",
+		"/home/krist_lee/projects/VTK/Filters/General",
+		"/home/krist_lee/projects/qt_vtk_build/Rendering/UI",
+		"/home/krist_lee/projects/VTK/Rendering/UI",
+		"/home/krist_lee/projects/qt_vtk_build/ThirdParty/glew/vtkglew",
+		"/home/krist_lee/projects/VTK/ThirdParty/glew/vtkglew",
+		"/home/krist_lee/projects/qt_vtk_build/Interaction/Widgets",
+		"/home/krist_lee/projects/VTK/Interaction/Widgets",
+		"/home/krist_lee/projects/qt_vtk_build/Filters/Sources",
+		"/home/krist_lee/projects/VTK/Filters/Sources",
+		"/home/krist_lee/projects/qt_vtk_build/Rendering/Context2D",
+		"/home/krist_lee/projects/VTK/Rendering/Context2D",
+		"/home/krist_lee/projects/qt_vtk_build/Filters/Extraction",
+		"/home/krist_lee/projects/VTK/Filters/Extraction",
+		"/home/krist_lee/projects/qt_vtk_build/Interaction/Style",
+		"/home/krist_lee/projects/VTK/Interaction/Style",
+		"/home/krist_lee/projects/qt_vtk_build/Utilities/KWIML",
+		"/home/krist_lee/projects/VTK/Utilities/KWIML",
+		"/home/krist_lee/projects/qt_vtk_build/Utilities/KWSys",
+		"/home/krist_lee/projects/VTK/Utilities/KWSys",
+		"/home/krist_lee/projects/qt_vtk_build/ThirdParty/kissfft",
+		"/home/krist_lee/projects/VTK/ThirdParty/kissfft",
+		"/home/krist_lee/projects/qt_vtk_build/ThirdParty/glew",
+		"/home/krist_lee/projects/VTK/ThirdParty/glew",
+		"/usr/include/x86_64-linux-gnu/qt5",
+		"/usr/include/x86_64-linux-gnu/qt5/QtOpenGL",
+		"/usr/include/x86_64-linux-gnu/qt5/QtWidgets",
+		"/usr/include/x86_64-linux-gnu/qt5/QtGui",
+		"/usr/include/x86_64-linux-gnu/qt5/QtCore",
+		"/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++",
+		"/usr/include",
+		"/usr/include/c++/9",
+		"/usr/include/x86_64-linux-gnu/c++/9",
+		"/usr/include/c++/9/backward",
+		"/usr/lib/gcc/x86_64-linux-gnu/9/include",
+		"/usr/local/include",
+		"/usr/include/x86_64-linux-gnu"
+	],
+	"MOC_MACRO_NAMES" : [ "Q_OBJECT", "Q_GADGET", "Q_NAMESPACE" ],
+	"MOC_OPTIONS" : [],
+	"MOC_PATH_PREFIX" : true,
+	"MOC_PREDEFS_CMD" : 
+	[
+		"/usr/bin/c++",
+		"-dM",
+		"-E",
+		"-c",
+		"/usr/share/cmake-3.16/Modules/CMakeCXXCompilerABI.cpp"
+	],
+	"MOC_PREDEFS_FILE" : "/home/krist_lee/projects/qt_vtk_build/GUISupport/Qt/GUISupportQt_autogen/moc_predefs.h",
+	"MOC_RELAXED_MODE" : false,
+	"MOC_SKIP" : [],
+	"MULTI_CONFIG" : false,
+	"PARALLEL" : 4,
+	"PARSE_CACHE_FILE" : "/home/krist_lee/projects/qt_vtk_build/GUISupport/Qt/CMakeFiles/GUISupportQt_autogen.dir/ParseCache.txt",
+	"QT_MOC_EXECUTABLE" : "/usr/lib/qt5/bin/moc",
+	"QT_UIC_EXECUTABLE" : "",
+	"QT_VERSION_MAJOR" : 5,
+	"SETTINGS_FILE" : "/home/krist_lee/projects/qt_vtk_build/GUISupport/Qt/CMakeFiles/GUISupportQt_autogen.dir/AutogenUsed.txt",
+	"SOURCES" : 
+	[
+		[
+			"/home/krist_lee/projects/VTK/GUISupport/Qt/QFilterTreeProxyModel.cxx",
+			"Mu"
+		],
+		[
+			"/home/krist_lee/projects/VTK/GUISupport/Qt/QVTKApplication.cxx",
+			"Mu"
+		],
+		[ "/home/krist_lee/projects/VTK/GUISupport/Qt/QVTKInteractor.cxx", "Mu" ],
+		[
+			"/home/krist_lee/projects/VTK/GUISupport/Qt/QVTKInteractorAdapter.cxx",
+			"Mu"
+		],
+		[
+			"/home/krist_lee/projects/VTK/GUISupport/Qt/QVTKOpenGLNativeWidget.cxx",
+			"Mu"
+		],
+		[
+			"/home/krist_lee/projects/VTK/GUISupport/Qt/QVTKOpenGLStereoWidget.cxx",
+			"Mu"
+		],
+		[
+			"/home/krist_lee/projects/VTK/GUISupport/Qt/QVTKOpenGLWindow.cxx",
+			"Mu"
+		],
+		[
+			"/home/krist_lee/projects/VTK/GUISupport/Qt/QVTKRenderWindowAdapter.cxx",
+			"Mu"
+		],
+		[
+			"/home/krist_lee/projects/VTK/GUISupport/Qt/vtkEventQtSlotConnect.cxx",
+			"Mu"
+		],
+		[
+			"/home/krist_lee/projects/VTK/GUISupport/Qt/vtkQWidgetRepresentation.cxx",
+			"Mu"
+		],
+		[
+			"/home/krist_lee/projects/VTK/GUISupport/Qt/vtkQWidgetTexture.cxx",
+			"Mu"
+		],
+		[
+			"/home/krist_lee/projects/VTK/GUISupport/Qt/vtkQWidgetWidget.cxx",
+			"Mu"
+		],
+		[
+			"/home/krist_lee/projects/VTK/GUISupport/Qt/vtkQtAbstractModelAdapter.cxx",
+			"Mu"
+		],
+		[
+			"/home/krist_lee/projects/VTK/GUISupport/Qt/vtkQtAnnotationLayersModelAdapter.cxx",
+			"Mu"
+		],
+		[
+			"/home/krist_lee/projects/VTK/GUISupport/Qt/vtkQtConnection.cxx",
+			"Mu"
+		],
+		[
+			"/home/krist_lee/projects/VTK/GUISupport/Qt/vtkQtDebugLeaksModel.cxx",
+			"Mu"
+		],
+		[
+			"/home/krist_lee/projects/VTK/GUISupport/Qt/vtkQtDebugLeaksView.cxx",
+			"Mu"
+		],
+		[
+			"/home/krist_lee/projects/VTK/GUISupport/Qt/vtkQtTableModelAdapter.cxx",
+			"Mu"
+		],
+		[
+			"/home/krist_lee/projects/VTK/GUISupport/Qt/vtkQtTreeModelAdapter.cxx",
+			"Mu"
+		]
+	],
+	"VERBOSITY" : 0
+}
