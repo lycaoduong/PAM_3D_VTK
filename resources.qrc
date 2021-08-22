@@ -4,5 +4,8 @@
         <file>icons/open_file.png</file>
         <file>icons/quit.png</file>
         <file>icons/zoom_to.png</file>
+        <file>icons/3d.png</file>
+        <file>icons/image.png</file>
+        <file>icons/rec.png</file>
     </qresource>
 </RCC>

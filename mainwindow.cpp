@@ -7,7 +7,8 @@
 
 #include <vtkNrrdReader.h>
 #include <vtkDataSetReader.h>
-
+#include <scenewidget.h>
+#include <vtkImageGaussianSmooth.h>
 
 
 MainWindow::MainWindow(QWidget* parent)
@@ -25,7 +26,7 @@ void MainWindow::showAboutDialog()
 {
     QMessageBox::information(
         this, "About",
-        "By Cao Duong Ly - Ohlabs.\nSource code available under Apache License 2.0.");
+        "By Cao Duong Ly - Ohlabs.\nSource code available under Ohlabs License.");
 }
 
 void MainWindow::showOpenFileDialog()
@@ -61,13 +62,17 @@ void MainWindow::openFile(const QString& fileName)
     vtkSmartPointer<vtkNrrdReader> reader = vtkSmartPointer<vtkNrrdReader>::New();
     reader->SetFileName(fileName.toStdString().c_str());
 
+    // GaussianFilter
+//    vtkSmartPointer<vtkImageGaussianSmooth> gaussianSmoothFilter = vtkSmartPointer<vtkImageGaussianSmooth>::New();
+//    gaussianSmoothFilter->SetInputConnection(reader->GetOutputPort());
+
     // Read the file
     reader->Update();
 
 
     // Add data set to 3D view
     vtkSmartPointer<vtkImageData> dataSet = reader->GetOutput();
-    dataSet->SetSpacing(0.1,1,1);
+    dataSet->SetSpacing(1,1,0.1);
 //    vtkSmartPointer<vtkDataSet> dataSet = reader->GetOutput();
 
     if (dataSet != nullptr) {
