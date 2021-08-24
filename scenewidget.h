@@ -30,15 +30,23 @@ public:
     //! Convert Image
     cv::Mat vtkImage2Mat(vtkSmartPointer<vtkImageData> imageData);
     vtkSmartPointer<vtkImageData> extractRenderWindow2image();
-
+    //! Save Image
+    void saveImage();
+    //! Image Interaction
+    void rotateAnimation();
+    bool isRoatate();
+    bool isRecord();
+    int getTimeRecord();
+    QString getViewUp();
+    QString getPosition();
+    QString getFocalPoint();
 
 public slots:
     //! Zoom to the extent of the data set in the scene
     void zoomToExtent();
-    void rotateAnimation();
-    void startRotate();
-    void saveImage();
     void recordVideo();
+    void startRotate();
+    void stopRecord();
 
 private:
     vtkSmartPointer<vtkRenderer> m_renderer;
@@ -47,7 +55,7 @@ private:
     vtkSmartPointer<vtkVolume> volume;
     QTimer *timer;
     cv::VideoWriter video_Write;
-    int frame_number;
+    int time_record;
 //    vtkSmartPointer<vtkImageData> img_volume;
 };
 

@@ -20,7 +20,13 @@ public slots:
 
     //! Show the 'Open file...' dialog
     void showOpenFileDialog();
-    void showStatus();
+    void showStatus(QString status);
+    void saveImage();
+    void rotateCamera();
+    void recordRotation();
+    void showViewUp();
+    void showPosition();
+    void showFocalPoint();
 
 protected:
     //! Open a file
@@ -28,11 +34,13 @@ protected:
     \param[in] fileName The name of the file including the path
   */
     void openFile(const QString& fileName);
+    void timerEvent(QTimerEvent *event);
 
 private slots:
 
 private:
     Ui::MainWindow* ui;
+    int timerId;
 };
 
 #endif // MAINWINDOW_H

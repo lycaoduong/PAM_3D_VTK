@@ -4,11 +4,15 @@
 #include <QFile>
 #include <QFileDialog>
 #include <QMessageBox>
+#include <QDebug>
 
 #include <vtkNrrdReader.h>
 #include <vtkDataSetReader.h>
-#include <scenewidget.h>
 #include <vtkImageGaussianSmooth.h>
+
+#include <scenewidget.h>
+#include <dataio.h>
+
 
 
 MainWindow::MainWindow(QWidget* parent)
@@ -31,23 +35,33 @@ void MainWindow::showAboutDialog()
 
 void MainWindow::showOpenFileDialog()
 {
-    QString fileName = QFileDialog::getOpenFileName(this, tr("Open file"), "",
-        "VTK Files (*.vtk *.nrrd)");
+    dataio *pam_data = new dataio;
+    pam_data->showOpenDialog();
 
-    // Open file
-    QFile file(fileName);
-    file.open(QIODevice::ReadOnly);
+    vtkSmartPointer<vtkImageData> volume = pam_data->getImageData();
+    volume->SetSpacing(1,1,0.1);
+//    vtkSmartPointer<vtkDataSet> dataSet = reader->GetOutput();
 
-    // Return on Cancel
-    if (!file.exists())
-        return;
+    if (volume != nullptr) {
+        ui->sceneWidget->addImage(volume);
+    }
 
-    openFile(fileName);
+//    QString fileName = QFileDialog::getOpenFileName(this, tr("Open file"), "",
+//        "VTK Files (*.vtk *.nrrd)");
+
+//    // Open file
+//    QFile file(fileName);
+//    file.open(QIODevice::ReadOnly);
+
+//    // Return on Cancel
+//    if (!file.exists())
+//        return;
+
+//    openFile(fileName);
 }
 
-void MainWindow::showStatus()
+void MainWindow::showStatus(QString status)
 {
-    QString status = "ABC";
     statusBar()->showMessage(status);
 }
 
@@ -82,5 +96,51 @@ void MainWindow::openFile(const QString& fileName)
     }
 }
 
+void MainWindow::saveImage()
+{
+    ui->sceneWidget->saveImage();
+}
 
+void MainWindow::rotateCamera()
+{
+    ui->sceneWidget->rotateAnimation();
+}
+
+void MainWindow::recordRotation()
+{
+   if(!(ui->sceneWidget->isRecord())){
+        ui->sceneWidget->recordVideo();
+        timerId = startTimer(100);
+        this->setFixedSize(this->width(),this->height());
+   }
+   else {
+       killTimer(timerId);
+       ui->sceneWidget->stopRecord();
+       QString _status = "Finished Record";
+       showStatus(_status);
+   }
+}
+
+void MainWindow::timerEvent(QTimerEvent *event)
+{
+    int time_count = ui->sceneWidget->getTimeRecord();
+    QString time_rec = QString::number(time_count / 60).rightJustified(2,'0') + ':' + QString::number(time_count % 60).rightJustified(2, '0');
+    time_rec = "Recording: " + time_rec;
+    showStatus(time_rec);
+}
+
+void MainWindow::showViewUp()
+{
+    showStatus(ui->sceneWidget->getViewUp());
+}
+
+void MainWindow::showPosition()
+{
+    showStatus(ui->sceneWidget->getPosition());
+}
+
+void MainWindow::showFocalPoint()
+{
+    showStatus(ui->sceneWidget->getFocalPoint());
+}
 

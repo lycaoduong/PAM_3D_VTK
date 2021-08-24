@@ -41,7 +41,22 @@
     </property>
     <addaction name="actionAbout"/>
    </widget>
+   <widget class="QMenu" name="menuTool">
+    <property name="title">
+     <string>Tools</string>
+    </property>
+    <widget class="QMenu" name="menuGet_Camera">
+     <property name="title">
+      <string>Get Camera</string>
+     </property>
+     <addaction name="actionGet_ViewUp"/>
+     <addaction name="actionGet_Position"/>
+     <addaction name="actionGet_Focal_Point"/>
+    </widget>
+    <addaction name="menuGet_Camera"/>
+   </widget>
    <addaction name="menuFile"/>
+   <addaction name="menuTool"/>
    <addaction name="menuAbout"/>
   </widget>
   <widget class="QStatusBar" name="statusbar">
@@ -97,6 +112,9 @@
    <property name="text">
     <string>Extent</string>
    </property>
+   <property name="shortcut">
+    <string>Ctrl+E</string>
+   </property>
   </action>
   <action name="actionAnimation">
    <property name="icon">
@@ -106,6 +124,9 @@
    <property name="text">
     <string>Animation</string>
    </property>
+   <property name="shortcut">
+    <string>Ctrl+A</string>
+   </property>
   </action>
   <action name="actionSaveImage">
    <property name="icon">
@@ -114,6 +135,9 @@
    </property>
    <property name="text">
     <string>Save Image</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+S</string>
    </property>
   </action>
   <action name="actionOpenFile">
@@ -133,6 +157,24 @@
    <property name="text">
     <string>Record Video</string>
    </property>
+   <property name="shortcut">
+    <string>Ctrl+R</string>
+   </property>
+  </action>
+  <action name="actionGet_ViewUp">
+   <property name="text">
+    <string>Get ViewUp</string>
+   </property>
+  </action>
+  <action name="actionGet_Position">
+   <property name="text">
+    <string>Get Position</string>
+   </property>
+  </action>
+  <action name="actionGet_Focal_Point">
+   <property name="text">
+    <string>Get Focal Point</string>
+   </property>
   </action>
  </widget>
  <customwidgets>
@@ -142,8 +184,6 @@
    <header location="global">scenewidget.h</header>
    <slots>
     <slot>zoomToExtent()</slot>
-    <slot>rotateAnimation()</slot>
-    <slot>saveImage()</slot>
     <slot>recordVideo()</slot>
    </slots>
   </customwidget>
@@ -204,8 +244,8 @@
   <connection>
    <sender>actionAnimation</sender>
    <signal>triggered()</signal>
-   <receiver>sceneWidget</receiver>
-   <slot>rotateAnimation()</slot>
+   <receiver>MainWindow</receiver>
+   <slot>rotateCamera()</slot>
    <hints>
     <hint type="sourcelabel">
      <x>-1</x>
@@ -213,14 +253,14 @@
     </hint>
     <hint type="destinationlabel">
      <x>399</x>
-     <y>319</y>
+     <y>299</y>
     </hint>
    </hints>
   </connection>
   <connection>
    <sender>actionSaveImage</sender>
    <signal>triggered()</signal>
-   <receiver>sceneWidget</receiver>
+   <receiver>MainWindow</receiver>
    <slot>saveImage()</slot>
    <hints>
     <hint type="sourcelabel">
@@ -229,7 +269,7 @@
     </hint>
     <hint type="destinationlabel">
      <x>399</x>
-     <y>319</y>
+     <y>299</y>
     </hint>
    </hints>
   </connection>
@@ -252,8 +292,8 @@
   <connection>
    <sender>actionRecord</sender>
    <signal>triggered()</signal>
-   <receiver>sceneWidget</receiver>
-   <slot>recordVideo()</slot>
+   <receiver>MainWindow</receiver>
+   <slot>recordRotation()</slot>
    <hints>
     <hint type="sourcelabel">
      <x>-1</x>
@@ -261,7 +301,55 @@
     </hint>
     <hint type="destinationlabel">
      <x>399</x>
-     <y>319</y>
+     <y>299</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionGet_ViewUp</sender>
+   <signal>triggered()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>showViewUp()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>299</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionGet_Position</sender>
+   <signal>triggered()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>showPosition()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>299</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionGet_Focal_Point</sender>
+   <signal>triggered()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>showFocalPoint()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>299</y>
     </hint>
    </hints>
   </connection>
@@ -270,5 +358,11 @@
   <slot>showOpenFileDialog()</slot>
   <slot>showAboutDialog()</slot>
   <slot>show_Status()</slot>
+  <slot>saveImage()</slot>
+  <slot>rotateCamera()</slot>
+  <slot>recordRotation()</slot>
+  <slot>showViewUp()</slot>
+  <slot>showPosition()</slot>
+  <slot>showFocalPoint()</slot>
  </slots>
 </ui>

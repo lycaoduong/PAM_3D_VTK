@@ -186,9 +186,8 @@ void SceneWidget::rotateAnimation()
     if (volume_a != nullptr) {
         // Timer
         if(!timer->isActive())  {
-            frame_number = 0;
             connect(timer, SIGNAL(timeout()), this, SLOT(startRotate()));
-            timer->start(50);
+            timer->start(40);
         }
         else {
             timer->stop();
@@ -198,13 +197,6 @@ void SceneWidget::rotateAnimation()
 
 void SceneWidget::startRotate()
 {
-    double *position = camera->GetPosition();
-    double *focalpoint = camera->GetFocalPoint();
-    double *viewup = camera->GetViewUp();
-    qDebug() << position[0] << position[1] << position[2];
-    qDebug() << focalpoint[0] << focalpoint[1] << focalpoint[2];
-    qDebug() << viewup[0] << viewup[1] << viewup[2];
-
     if (video_Write.isOpened())
     {
         vtkSmartPointer<vtkImageData> imageData = vtkSmartPointer<vtkImageData>::New();
@@ -212,41 +204,9 @@ void SceneWidget::startRotate()
 //        int *size = imageData->GetDimensions();
         cv::Mat matImage = vtkImage2Mat(imageData);
         video_Write.write(matImage);
+        time_record++;
 //        cv::imwrite("cv_image.png", matImage);
     }
-
-//    double axis[3];
-//    axis[0] = -camera->GetViewTransformMatrix()->GetElement(0,0);
-//    axis[1] = -camera->GetViewTransformMatrix()->GetElement(0,1);
-//    axis[2] = -camera->GetViewTransformMatrix()->GetElement(0,2);
-
-//    // Build The transformatio /////////////////////////////////////////////////
-//    vtkSmartPointer<vtkTransform> transform = vtkSmartPointer<vtkTransform>::New();
-//    transform->Identity();
-
-////    vtkSmartPointer<vtkGPUVolumeRayCastMapper> mapper = vtkSmartPointer<vtkGPUVolumeRayCastMapper>::New();
-////    mapper->SetInputData(volume->GetMapper());
-//    vtkSmartPointer<vtkImageData> img_volume = vtkSmartPointer<vtkImageData>::New();
-//    img_volume->GetData(volume->GetMapper()->GetInformation());
-
-//    vtkSmartPointer<vtkCenterOfMass> centerfilter = vtkSmartPointer<vtkCenterOfMass>::New();
-//    centerfilter->SetInputData(img_volume);
-//    centerfilter->SetUseScalarsAsWeights(false);
-//    centerfilter->Update();
-//    double *center = centerfilter->GetCenter();
-
-//    transform->Translate(-center[0], -center[1], -center[2]);
-//    transform->RotateWXYZ(1, viewup); // Azimuth
-////    transform->RotateWXYZ(1, 1, 0, 0);   // Elevation
-//    transform->Translate(-center[0], -center[1], -center[2]);
-
-//    double newPosition[3];
-//    transform->TransformPoint(position,newPosition); // Transform Position
-//    double newFocalPoint[3];
-//    transform->TransformPoint(focalpoint, newFocalPoint); // Transform Focal Point
-
-//    camera->SetPosition(newPosition);
-//    camera->SetFocalPoint(newFocalPoint);
 
 //      camera->Elevation(0.36);
     camera->Azimuth(0.36);
@@ -254,6 +214,7 @@ void SceneWidget::startRotate()
 
     renderWindow()->Render();
 }
+
 
 void SceneWidget::saveImage()
 {
@@ -298,24 +259,13 @@ vtkSmartPointer<vtkImageData> SceneWidget::extractRenderWindow2image()
 
 void SceneWidget::recordVideo()
 {
-//    QString name = QString::number(frame_number);
-//    name = "./frame_out/frame_" + name + ".png";
-//    std::string str = name.toStdString();
-//    const char* p = str.c_str();
-
-//    vtkSmartPointer<vtkWindowToImageFilter> img = vtkSmartPointer<vtkWindowToImageFilter>::New();
-//    img->SetInput(renderWindow());
-//    vtkSmartPointer<vtkPNGWriter> img_w = vtkSmartPointer<vtkPNGWriter>::New();
-//    img_w->SetFileName(p);
-//    img_w->SetInputConnection(img->GetOutputPort());
-//    img_w->Write();
-//    frame_number+=1;
     if(!video_Write.isOpened())
     {
         QString fname = QFileDialog::getSaveFileName(nullptr, "Record Video", ".", "Video (*.avi)");
-        fname = fname + ".avi";
 
         if(!fname.isEmpty() && !fname.isNull()) {
+            fname = fname + ".avi";
+            time_record = 0;
             std::string str = fname.toStdString();
             const char* file_path = str.c_str();
             vtkSmartPointer<vtkImageData> imageData = vtkSmartPointer<vtkImageData>::New();
@@ -325,11 +275,68 @@ void SceneWidget::recordVideo()
             video_Write.open(file_path, cv::VideoWriter::fourcc('M','J','P','G'), 24, cv::Size(size[0],size[1]));
     //        video_Write.write(matImage);
             qDebug() << "Write";
+            if(!timer->isActive())  {
+                connect(timer, SIGNAL(timeout()), this, SLOT(startRotate()));
+                timer->start(40);
+            }
         }
     }
-    else if(video_Write.isOpened())
+}
+
+void SceneWidget::stopRecord()
+{
+    if(video_Write.isOpened())
     {
+        timer->stop();
         video_Write.release();
         qDebug() << "OK";
     }
+}
+
+bool SceneWidget::isRoatate()
+{
+    bool is_rotate = false;
+    if(timer->isActive()){
+        is_rotate = true;
+    }
+    else {
+        is_rotate = false;
+    }
+    return is_rotate;
+}
+
+bool SceneWidget::isRecord()
+{
+    bool is_record = false;
+    if(video_Write.isOpened()){
+        is_record = true;
+    }
+    return is_record;
+}
+
+int SceneWidget::getTimeRecord()
+{
+    int second = time_record/20;
+    return second;
+}
+
+QString SceneWidget::getViewUp()
+{
+    double *viewup = camera->GetViewUp();
+    QString _viewUp = "View Up: " + QString::number(viewup[0]) + ' ' + QString::number(viewup[1]) + ' ' + QString::number(viewup[2]);
+    return _viewUp;
+}
+
+QString SceneWidget::getPosition()
+{
+    double *position = camera->GetPosition();
+    QString _position = "Position: " + QString::number(position[0]) + ' ' + QString::number(position[1]) + ' ' + QString::number(position[2]);
+    return _position;
+}
+
+QString SceneWidget::getFocalPoint()
+{
+    double *focalpoint = camera->GetFocalPoint();
+    QString _focalpoint = "Focal Point: " + QString::number(focalpoint[0]) + ' ' + QString::number(focalpoint[1]) + ' ' + QString::number(focalpoint[2]);
+    return _focalpoint;
 }

@@ -53,6 +53,8 @@ set(PROJECT_SOURCES
         scenewidget.cpp
         scenewidget.h
         resources.qrc
+        dataio.cpp
+        dataio.h
 )
 
 # Find package VTK
