@@ -7,7 +7,7 @@ This project depends on the following libraries:
 # **Software Interface**
 Graphical User Interface |
 --- | 
-![plot](system_design.jpg) | 
+![plot](pam3dviewer.png) | 
 # **Citation**
 ```@article{ly2022full,
   title={Full-view in vivo skin and blood vessels profile segmentation in photoacoustic imaging based on deep learning},
